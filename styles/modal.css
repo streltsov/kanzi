@@ -16,7 +16,7 @@
   background-color: #f9f9fa;
   border: 2px solid rgba(12, 12, 13, 0.2);
   border-radius: 2px;
-  width: 40%;
+  max-width: 40%;
   margin: 0 auto;
   padding: 0 16px;
   position: relative;
