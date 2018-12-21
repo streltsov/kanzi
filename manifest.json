@@ -1,0 +1,37 @@
+{
+
+  "manifest_version": 2,
+  "name": "Kanzi",
+  "version": "0.6",
+  "description": "Kanzi - vocabulary expander",
+
+  "applications": {
+    "gecko": {
+      "id": "kanzi@w3punk.com"
+    }
+  },
+
+  "background": {
+    "scripts": ["background_scripts/background.js"]
+  },
+
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": [
+      "content_scripts/tippy.js",
+      "content_scripts/findAndReplaceDOMText.js",
+      "content_scripts/createModal.js",
+      "content_scripts/createTooltip.js",
+      "content_scripts/kanzi.js"
+    ],
+
+    "css": [
+      "css/modal.css",
+      "css/tooltip.css",
+      "css/tippy_themes/light.css",
+      "fonts/Cormorant_Garamond_Light.css"
+    ]
+  }],
+
+  "permissions": ["menus", "storage"]
+}
