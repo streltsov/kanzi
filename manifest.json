@@ -26,9 +26,9 @@
     ],
 
     "css": [
-      "css/modal.css",
-      "css/tooltip.css",
-      "css/tippy_themes/light.css",
+      "styles/modal.css",
+      "styles/tooltip.css",
+      "styles/tippy_themes/light.css",
       "fonts/Cormorant_Garamond_Light.css"
     ]
   }],
