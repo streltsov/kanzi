@@ -34,11 +34,7 @@ function unwrapWord(word) {
 function wrapWord(word, meaning, example) {
   word = word.trim().toLowerCase();
 
-  let re = new RegExp('\\b' + word + '\\b|\\b' +
-    word + '{0,2}ing\\b|\\b' +
-    word + '{0,2}e?d\\b|\\b' +
-    word + 'e?s\\b|\\b' +
-    word + '{0,2}e?r\\b', 'gi');
+  let re = new RegExp('\\b' + word + '\\b|\\b' + word + '{0,2}(i?ed|i?e?s|ing|er|or|i?ly|ication|ion|ness)\\b', 'gi');
 
   findAndReplaceDOMText(document.getElementsByTagName('body')[0], {
     preset: 'prose',
