@@ -22,8 +22,9 @@
   position: relative;
 }
 
+
 .kz-word-field {
-  background: none;
+  background: #f9f9fa !important;
   border: none;
   color: #ff0039;
   font-family: 'Cormorant Garamond', serif;
@@ -127,4 +128,9 @@ svg {
 
 .kz-close-button:focus {
   box-shadow: 0 0 0 1px #0a84ff inset, 0 0 0 1px #0a84ff, 0 0 0 4px rgba(10, 132, 255, 0.3)
+}
+
+.kz-word-field,           /* Fixes Grammarly wordField overlap when changing fields */
+.kz-close-button {
+    z-index: 2
 }
