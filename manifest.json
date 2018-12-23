@@ -3,7 +3,7 @@
   "manifest_version": 2,
   "name": "Kanzi",
   "version": "0.6",
-  "description": "Kanzi - vocabulary expander",
+  "description": "Kanzi - vocabulary builder",
 
   "applications": {
     "gecko": {
