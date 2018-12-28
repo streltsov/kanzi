@@ -43,16 +43,3 @@ function wrapWord(word) {
     });
   });
 }
-
-function addWord(word, meaning, example) {
-  word = word.trim().toLowerCase();
-  meaning = meaning.trim();
-  example = example.trim();
-
-  browser.storage.local.set({
-    [word]: {
-      meaning: meaning,
-      example: example
-    }
-  });
-}
