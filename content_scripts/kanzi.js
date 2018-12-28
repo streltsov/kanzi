@@ -12,6 +12,9 @@ browser.storage.local.get().then((dict) => {
         Object.keys(dict).forEach(word => {
           let re = new RegExp('(\\b' + word + '\\b|\\b' + word + '{0,2}(i?ed|i?e?s|ing|er|or|i?ly|ication|ion|ness)\\b)' + '(?![^<]*>|[^<>]*<\/)', 'gi');
           tag.innerHTML = tag.innerHTML.replace(re, `<span class="kz-word kz-${word.replace(/\s/g, '_')}">$&</span>`);
+        });
+
+        Object.keys(dict).forEach(word => {
           createTooltip(word, dict[word].meaning, dict[word].example);
         });
 
