@@ -11,7 +11,7 @@ function createModal(word, meaning, example) {
   modalContent.className = 'kz-modal-content';
 
   let wordField = document.createElement('input');
-  wordField.value = word; 
+  wordField.value = word;
   wordField.className = 'kz-word-field';
 
   let meaningLabel = document.createElement('label');
@@ -45,13 +45,13 @@ function createModal(word, meaning, example) {
   closeButton.onclick = () => modal.remove();
 
   let closeButtonIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  closeButtonIcon.setAttribute('width','24');
-  closeButtonIcon.setAttribute('height','24');
-  closeButtonIcon.setAttribute('viewBox','0 0 24 24');
+  closeButtonIcon.setAttribute('width', '24');
+  closeButtonIcon.setAttribute('height', '24');
+  closeButtonIcon.setAttribute('viewBox', '0 0 24 24');
 
   let closeButtonIconPath = document.createElementNS("http://www.w3.org/2000/svg", 'path');
-  closeButtonIconPath.setAttribute('fill','rgba(12, 12, 13, .8)');
-  closeButtonIconPath.setAttribute('d','M5.293 6.707a1 1 0 1 1 1.414-1.414L12 10.586l5.293-5.293a1 1 0 1 1 1.414 1.414L13.414 12l5.293 5.293a1 1 0 0 1-1.414 1.414L12 13.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L10.586 12 5.293 6.707z');
+  closeButtonIconPath.setAttribute('fill', 'rgba(12, 12, 13, .8)');
+  closeButtonIconPath.setAttribute('d', 'M5.293 6.707a1 1 0 1 1 1.414-1.414L12 10.586l5.293-5.293a1 1 0 1 1 1.414 1.414L13.414 12l5.293 5.293a1 1 0 0 1-1.414 1.414L12 13.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L10.586 12 5.293 6.707z');
   closeButtonIcon.appendChild(closeButtonIconPath);
   closeButton.appendChild(closeButtonIcon)
 
@@ -63,7 +63,7 @@ function createModal(word, meaning, example) {
       addWord(wordField.value, meaningField.value, exampleField.value);
       modal.remove();
       wrapWord(wordField.value);
-      createTooltip(wordField.value, meaningField.value, exampleField.value);
+      browser.storage.local.get().then((dict) => Object.keys(dict).forEach(word => createTooltip(word, dict[word].meaning, dict[word].example));
     } else {
       alert("Word field couldn't be empty!")
     };
