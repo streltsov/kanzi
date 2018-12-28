@@ -34,16 +34,13 @@ function unwrapWord(word) {
   });
 }
 
-function wrapWord(word, meaning, example) {
-  word = word.trim().toLowerCase();
-
-  let re = new RegExp('\\b' + word + '\\b|\\b' + word + '{0,2}(i?ed|i?e?s|ing|er|or|i?ly|ication|ion|ness)\\b', 'gi');
-
-  findAndReplaceDOMText(document.getElementsByTagName('body')[0], {
-    preset: 'prose',
-    find: re,
-    wrap: 'span',
-    wrapClass: `kz-word kz-${word.replace(/\s/g, '_')}`
+function wrapWord(word) {
+  word = word.trim().toLowerCase().replace(/\s/g, '_');
+  let re = new RegExp('(\\b' + word + '\\b|\\b' + word + '{0,2}(i?ed|i?e?s|ing|er|or|i?ly|ication|ion|ness)\\b)' + '(?![^<]*>|[^<>]*<\/)', 'gi');
+  tags.forEach(tag => {
+    document.querySelectorAll(tag).forEach(tag => {
+      tag.innerHTML = tag.innerHTML.replace(re, `<span class="kz-word kz-${word}">$&</span>`);
+    });
   });
 }
 
