@@ -1,8 +1,6 @@
 browser.storage.local.get().then((dict) => {
-  for (let word in dict) {
-    wrapWord(word, dict[word].meaning, dict[word].example);
-    createTooltip(word, dict[word].meaning, dict[word].example);
-  }
+  Object.keys(dict).forEach(word => wrapWord(word));
+  Object.keys(dict).forEach(word => createTooltip(word, dict[word].meaning, dict[word].example));
 });
 
 browser.runtime.onMessage.addListener(request => createModal(request.selectedText));
@@ -31,15 +29,11 @@ function unwrapWord(word) {
   }
 }
 
-function wrapWord(word, meaning, example) {
+function wrapWord(word) {
   word = word.trim().toLowerCase();
 
-  let re = new RegExp('\\b' + word + '\\b|\\b' + word + '{0,2}(i?ed|i?e?s|ing|er|or|i?ly|ication|ion|ness)\\b', 'gi');
+  let tag = document.getElementsByTagName('body')[0];
 
-  findAndReplaceDOMText(document.getElementsByTagName('body')[0], {
-    preset: 'prose',
-    find: re,
-    wrap: 'span',
-    wrapClass: `kz-word kz-${word.replace(/\s/g, '_')}`
-  });
+  let re = new RegExp('(\\b' + word + '\\b|\\b' + word + '{0,2}(i?ed|i?e?s|ing|er|or|i?ly|ication|ion|ness)\\b)' + '(?![^<]*>|[^<>]*<\/)', 'gi');
+  tag.innerHTML = tag.innerHTML.replace(re, `<span class="kz-word kz-${word.replace(/\s/g, '_')}">$&</span>`);
 }

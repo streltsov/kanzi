@@ -62,7 +62,7 @@ function createModal(word, meaning, example) {
       unwrapWord(wordField.value);
       addWord(wordField.value, meaningField.value, exampleField.value);
       modal.remove();
-      wrapWord(wordField.value, meaningField.value, exampleField.value);
+      wrapWord(wordField.value);
       createTooltip(wordField.value, meaningField.value, exampleField.value);
     } else {
       alert("Word field couldn't be empty!")
