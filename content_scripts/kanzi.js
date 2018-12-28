@@ -27,28 +27,11 @@ browser.storage.local.get().then((dict) => {
 
 browser.runtime.onMessage.addListener(request => createModal(request.selectedText));
 
-function addWord(word, meaning, example) {
-  word = word.trim().toLowerCase();
-  meaning = meaning.trim();
-  example = example.trim();
-
-  browser.storage.local.set({
-    [word]: {
-      meaning: meaning,
-      example: example
-    }
-  });
-}
-
 function unwrapWord(word) {
-  word = word.trim().toLowerCase();
-  let span = document.getElementsByClassName(`kz-${word.replace(/\s/g, '_')}`);
-  while (span[0]) {
-    let allTextInSpan = span[0].innerText;
-    let arr = allTextInSpan.split('\n', 1);
-    let wordInText = arr[0];
-    span[0].parentNode.replaceChild(document.createTextNode(wordInText), span[0]);
-  }
+  word = word.trim().toLowerCase().replace(/\s/g, '_');
+  document.querySelectorAll(`.kz-${word}`).forEach(wrapper => {
+    wrapper.outerHTML = wrapper.outerHTML.replace(wrapper.outerHTML, wrapper.innerText)
+  });
 }
 
 function wrapWord(word, meaning, example) {
@@ -61,5 +44,18 @@ function wrapWord(word, meaning, example) {
     find: re,
     wrap: 'span',
     wrapClass: `kz-word kz-${word.replace(/\s/g, '_')}`
+  });
+}
+
+function addWord(word, meaning, example) {
+  word = word.trim().toLowerCase();
+  meaning = meaning.trim();
+  example = example.trim();
+
+  browser.storage.local.set({
+    [word]: {
+      meaning: meaning,
+      example: example
+    }
   });
 }
