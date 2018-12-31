@@ -31,18 +31,18 @@ browser.storage.local.get().then((dict) => {
 browser.runtime.onMessage.addListener(request => createModal(request.selectedText));
 
 function unwrapWord(word) {
-  word = word.trim().toLowerCase().replace(/\s/g, '_');
-  document.querySelectorAll(`.kz-${word}`).forEach(wrapper => {
+  word = word.trim().toLowerCase();
+  document.querySelectorAll(`.kz-${word.replace(/\s/g, '_')}`).forEach(wrapper => {
     wrapper.outerHTML = wrapper.outerHTML.replace(wrapper.outerHTML, wrapper.innerText)
   });
 }
 
 function wrapWord(word) {
-  word = word.trim().toLowerCase().replace(/\s/g, '_');
+  word = word.trim().toLowerCase();
   let re = new RegExp('(\\b' + word + '\\b|\\b' + word + '{0,2}(i?ed|i?e?s|ing|er|or|i?ly|ication|ion|ness)\\b)' + '(?![^<]*>|[^<>]*<\/)', 'gi');
   tags.forEach(tag => {
     document.querySelectorAll(tag).forEach(tag => {
-      tag.innerHTML = tag.innerHTML.replace(re, `<span class="kz-word kz-${word}">$&</span>`);
+      tag.innerHTML = tag.innerHTML.replace(re, `<span class="kz-word kz-${word.replace(/\s/g, '_')}">$&</span>`);
     });
   });
 }
