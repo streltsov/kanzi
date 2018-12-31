@@ -10,9 +10,9 @@ function createTooltip(word, meaning, example) {
       editButton.onclick = () => createModal(word, meaning, example);
       let editButtonIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       let editButtonIconPath = document.createElementNS("http://www.w3.org/2000/svg", 'path');
-      editButtonIconPath.setAttribute("d", "M4 10a1.994 1.994 0 0 0-1.911 1.44c0 .01-.014.015-.017.025-.362 1.135-.705 2.11-1.759 2.573l-.023.012-.024.012A.5.5 0 0 0 0 14.5a.5.5 0 0 0 .5.5 6.974 6.974 0 0 0 4.825-1.5c.006-.006.007-.013.013-.019A1.993 1.993 0 0 0 4 10zM15.693.307a.984.984 0 0 0-1.338-.046l-8.031 7a.982.982 0 0 0-.049 1.433l1.032 1.031a.983.983 0 0 0 .693.287h.033a.982.982 0 0 0 .706-.335l7-8.031a.982.982 0 0 0-.046-1.339z");
+      editButtonIconPath.setAttribute("d", "M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z");
       editButtonIconPath.setAttribute("fill", "rgba(12, 12, 13, 0.8)");
-      editButtonIcon.setAttribute("viewBox", "0 0 16 16");
+      editButtonIcon.setAttribute("viewBox", "0 1 13 15");
       editButtonIcon.setAttribute("width", "16");
       editButtonIcon.setAttribute("height", "16");
       editButtonIcon.appendChild(editButtonIconPath);
@@ -27,11 +27,12 @@ function createTooltip(word, meaning, example) {
       }
       let trashButtonIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       let trashButtonIconPath = document.createElementNS("http://www.w3.org/2000/svg", 'path');
-      trashButtonIconPath.setAttribute("d", "M20 5h-5a3 3 0 1 0-6 0H4a1 1 0 0 0 0 2h1v12a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V7h1a1 1 0 1 0 0-2zm-8-2a2 2 0 0 1 2 2h-4a2 2 0 0 1 2-2zM7 7v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V7H7zm2.539 2.002a.5.5 0 0 0-.503.498l-.034 8a.5.5 0 0 0 1 .004l.034-8a.5.5 0 0 0-.497-.502zm4.497.498a.5.5 0 0 1 1 .004l-.034 8a.5.5 0 0 1-1-.004l.034-8zM12 9.002a.5.5 0 0 0-.502.498l-.034 8a.5.5 0 0 0 1 .004l.034-8A.5.5 0 0 0 12 9.002z");
+      //trashButtonIconPath.setAttribute("d", "M20 5h-5a3 3 0 1 0-6 0H4a1 1 0 0 0 0 2h1v12a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V7h1a1 1 0 1 0 0-2zm-8-2a2 2 0 0 1 2 2h-4a2 2 0 0 1 2-2zM7 7v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V7H7zm2.539 2.002a.5.5 0 0 0-.503.498l-.034 8a.5.5 0 0 0 1 .004l.034-8a.5.5 0 0 0-.497-.502zm4.497.498a.5.5 0 0 1 1 .004l-.034 8a.5.5 0 0 1-1-.004l.034-8zM12 9.002a.5.5 0 0 0-.502.498l-.034 8a.5.5 0 0 0 1 .004l.034-8A.5.5 0 0 0 12 9.002z");
+      trashButtonIconPath.setAttribute("d", "M11 2H9c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1H2c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1v9c0 .55.45 1 1 1h7c.55 0 1-.45 1-1V5c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm-1 12H3V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9zm1-10H2V3h9v1z");
       trashButtonIconPath.setAttribute("fill", "rgba(12, 12, 13, 0.8)");
       trashButtonIconPath.setAttribute("fill-rule", "evenodd");
       trashButtonIconPath.setAttribute("clip-rule", "evenodd");
-      trashButtonIcon.setAttribute("viewBox", "0 0 24 24");
+      trashButtonIcon.setAttribute("viewBox", "0 0 14 16");
       trashButtonIcon.setAttribute("width", "16");
       trashButtonIcon.setAttribute("height", "16");
       trashButtonIcon.appendChild(trashButtonIconPath);
