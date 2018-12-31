@@ -10,7 +10,7 @@ browser.storage.local.get().then((dict) => {
         let t0 = performance.now();
 
         Object.keys(dict).forEach(word => {
-          let re = new RegExp('(\\b' + word + '\\b|\\b' + word + '{0,2}(i?ed|i?e?s|ing|er|or|i?ly|ication|ion|ness)\\b)' + '(?![^<]*>|[^<>]*<\/)', 'gi');
+          let re = new RegExp('(\\b' + word + '\\b|\\b' + word + '{0,2}(i?ed|i?e?s|ing|er|ers|or|ors|i?ly|ication|ion|ness|edly|ate)\\b)' + '(?![^<]*>|[^<>]*<\/)', 'gi');
           tag.innerHTML = tag.innerHTML.replace(re, `<span class="kz-word kz-${word.replace(/\s/g, '_')}">$&</span>`);
         });
 
