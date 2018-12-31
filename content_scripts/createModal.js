@@ -58,12 +58,26 @@ function createModal(word, meaning, example) {
   let addButton = document.createElement('button');
   addButton.className = 'kz-add-button';
   addButton.onclick = function() {
+
+    word = wordField.value.trim().toLowerCase();
+    meaning = meaningField.value.trim();
+    example = exampleField.value.trim();
+
     if (wordField.value) {
-      unwrapWord(wordField.value);
-      addWord(wordField.value, meaningField.value, exampleField.value);
+
+      unwrapWord(word);
+
+      browser.storage.local.set({
+        [word]: {
+          meaning: meaning,
+          example: example
+        }
+      });
+
       modal.remove();
-      wrapWord(wordField.value);
-      browser.storage.local.get().then((dict) => Object.keys(dict).forEach(word => createTooltip(word, dict[word].meaning, dict[word].example));
+      wrapWord(word);
+      createTooltip(word, meaning, example);
+
     } else {
       alert("Word field couldn't be empty!")
     };
