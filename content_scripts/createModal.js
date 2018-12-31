@@ -97,3 +97,10 @@ function createModal(word, meaning, example) {
 
   wordField.focus();
 }
+
+window.addEventListener("keydown", function(evt) {
+  if (evt.keyCode === 27 && document.querySelector(".kz-overlay")) {
+    evt.preventDefault();
+    document.querySelector(".kz-overlay").remove();
+  }
+});
