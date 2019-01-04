@@ -1,48 +1,48 @@
-let tags = ['p'];
 browser.storage.local.get().then((dict) => {
-
-  tags.forEach(tag => {
-
-    inView(tag).on('enter', tag => {
-
-      if (!tag.classList.contains('kz-done')) {
-
-        let t0 = performance.now();
-
-        Object.keys(dict).forEach(word => {
-          let re = new RegExp('(\\b' + word + '\\b|\\b' + word + '{0,2}(i?ed|i?e?s|ing|er|ers|or|ors|i?ly|ication|ion|ness|edly|ate)\\b)' + '(?![^<]*>|[^<>]*<\/)', 'gi');
-          tag.innerHTML = tag.innerHTML.replace(re, `<span class="kz-word kz-${word.replace(/\s/g, '_')}">$&</span>`);
-        });
-
-        Object.keys(dict).forEach(word => {
-          createTooltip(word, dict[word].meaning, dict[word].example);
-        });
-
-        tag.classList.add('kz-done');
-
-        let t1 = performance.now();
-        console.log('Tag ' + '<' + tag.tagName + '> took: ' + (t1 - t0) + ' milliseconds');
-
-      } // if contains
-    }); // inView
-  }); // forEach tag in array
+  let t0 = performance.now();
+  Object.keys(dict).forEach(word => wrapWord(word));
+  let t1 = performance.now();
+  console.log('Performance: ' + (t1 - t0) + 'milliseconds.')
+  console.log('Total words: ' + Object.keys(dict).length);
+  Object.keys(dict).forEach(word => createTooltip(word, dict[word].meaning, dict[word].example));
 });
 
 browser.runtime.onMessage.addListener(request => createModal(request.selectedText));
+
+function wrapWord(word) {
+  let nodes = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+  let re = new RegExp('(\\b' + word + '\\b|\\b' + word + '{0,2}(i?ed|i?e?s|ing|er|or|i?ly|ication|ion|ness)\\b)' + '(?![^<]*>|[^<>]*</)', 'gi');
+
+  while (nodes.nextNode()) {
+
+    if (nodes.currentNode.textContent.trim()) {
+
+      if (nodes.currentNode.textContent.search(re) != -1) {
+
+        let wordStart = nodes.currentNode.textContent.search(re);
+        let wordLength;
+
+        for (i = wordStart + 1; /\w/.test(nodes.currentNode.textContent.charAt(i)); i++) {
+          wordLength = (i + 1) - wordStart;
+        }
+
+        let splitNode = nodes.currentNode.splitText(wordStart);
+        nodes.nextNode();
+        let wordInText = nodes.currentNode.data.slice(0, wordLength);
+        nodes.currentNode.data = nodes.currentNode.data.slice(wordLength)
+        let span = document.createElement('span');
+        span.appendChild(document.createTextNode(wordInText));
+        nodes.currentNode.parentElement.insertBefore(span, splitNode);
+        span.className = `kz-word kz-${word}`
+
+      }
+    }
+  }
+}
 
 function unwrapWord(word) {
   word = word.trim().toLowerCase();
   document.querySelectorAll(`.kz-${word.replace(/\s/g, '_')}`).forEach(wrapper => {
     wrapper.outerHTML = wrapper.outerHTML.replace(wrapper.outerHTML, wrapper.innerText)
-  });
-}
-
-function wrapWord(word) {
-  word = word.trim().toLowerCase();
-  let re = new RegExp('(\\b' + word + '\\b|\\b' + word + '{0,2}(i?ed|i?e?s|ing|er|or|i?ly|ication|ion|ness)\\b)' + '(?![^<]*>|[^<>]*<\/)', 'gi');
-  tags.forEach(tag => {
-    document.querySelectorAll(tag).forEach(tag => {
-      tag.innerHTML = tag.innerHTML.replace(re, `<span class="kz-word kz-${word.replace(/\s/g, '_')}">$&</span>`);
-    });
   });
 }
