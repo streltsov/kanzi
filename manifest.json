@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "Kanzi",
-  "version": "0.8.0",
+  "version": "1.0.1",
   "description": "Kanzi - vocabulary builder",
 
   "applications": {
@@ -19,7 +19,6 @@
     "matches": ["<all_urls>"],
     "js": [
       "content_scripts/tippy.js",
-      "content_scripts/inView.js",
       "content_scripts/createModal.js",
       "content_scripts/createTooltip.js",
       "content_scripts/kanzi.js"
