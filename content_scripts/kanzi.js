@@ -11,7 +11,7 @@ browser.runtime.onMessage.addListener(request => createModal(request.selectedTex
 
 function wrapWord(word) {
   let nodes = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
-  let re = new RegExp('(\\b' + word + '\\b|\\b' + word + '{0,2}(i?ed|i?e?s|ing|er|or|i?ly|ication|ion|ness)\\b)' + '(?![^<]*>|[^<>]*</)', 'gi');
+  let re = new RegExp('(\\b' + word + '\\b|\\b' + word + '{0,2}(i?ed|i?e?s|ing|er|or|y|i?ly|ally|able|ication|a?t?ion|ness)\\b)' + '(?![^<]*>|[^<>]*</)', 'gi');
 
   while (nodes.nextNode()) {
 
