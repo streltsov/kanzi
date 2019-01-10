@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "Kanzi",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Kanzi - vocabulary builder",
 
   "applications": {
@@ -21,7 +21,7 @@
       "19": "buttons/kanzi-19.png",
       "38": "buttons/kanzi-38.png"
     },
-    "default_title": "Kanzi Dictionary",
+    "default_title": "Kanzi menu",
     "default_popup": "popup/menu.html"
   },
 
