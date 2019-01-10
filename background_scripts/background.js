@@ -11,8 +11,3 @@ browser.menus.onClicked.addListener(function(info, tab) {
     })
   }
 });
-
-browser.tabs.create(
-  {url: 'kanzi_dictionary/dictionary.html'}
-)
-
