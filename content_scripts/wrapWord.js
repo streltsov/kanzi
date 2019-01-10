@@ -1,6 +1,6 @@
 function wrapWord(string) {
 
-  let suffixes = '{0,2}(i?ed|i?e?s|ings?|in'|er|or|y|i?ly|i?e?ty|ive|ally|able|ion|tion|ation|ition|ication|ness|)';
+  let suffixes = '{0,2}(i?ed|i?e?s|ings?|in\'|er|or|y|i?ly|i?e?ty|ive|ally|able|ion|tion|ation|ition|ication|ness|)';
 
   let regexPattern = string.split(' ');
   regexPattern.forEach(function(value, index, array) {
