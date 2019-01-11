@@ -66,5 +66,6 @@ function printFile(file) {
       })
     })
   };
+  browser.tabs.reload();
   reader.readAsText(file);
 }
