@@ -2,7 +2,7 @@ browser.storage.local.get().then((dict) => {
   let wordsInTotal = document.createTextNode(Object.keys(dict).length);
   document.getElementsByClassName('words-in-total')[0].appendChild(wordsInTotal);
 
-  Object.keys(dict).forEach(word => {
+  Object.keys(dict).sort().forEach(word => {
 
     let row = document.createElement('tr');
 
