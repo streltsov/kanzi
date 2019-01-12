@@ -1,6 +1,6 @@
 body {
   color: #0c0c0d;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Helvetica, sans-serif;
 }
 
 h1 {
@@ -8,8 +8,41 @@ h1 {
   color: #45a1ff;
 }
 
+.panel {
+  display: flex;
+}
+
 .panel p {
-  display: inline-block;
+  flex-grow: 1;
+}
+
+button {
+  color: #0c0c0d;
+  background-color: rgba(12, 12, 13, 0.1);
+  height: 32px;
+  width: auto;
+  border-radius: 2px;
+  padding: 0 8px;
+  font-size: 13px;
+  font-weight: 400;
+  border: none;
+  margin-left: 8px;
+}
+
+button:hover {
+  background-color: rgba(12, 12, 13, 0.2);
+}
+
+button:active {
+  background-color: rgba(12, 12, 13, 0.3);
+}
+
+button:focus {
+  box-shadow: 0 0 0 1px #0a84ff inset, 0 0 0 1px #0a84ff, 0 0 0 4px rgba(10, 132, 255, 0.3);
+}
+
+button:disabled {
+  opacity: 0.4;
 }
 
 input[type="file"] {
