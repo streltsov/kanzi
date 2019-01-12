@@ -5,6 +5,7 @@ browser.storage.local.get().then((dict) => {
   Object.keys(dict).sort().forEach(word => {
 
     let row = document.createElement('tr');
+    row.id = word.trim().replace(/\s/g, '_');
 
     let wordColumn = document.createElement('td');
     let wordColumnText = document.createTextNode(word);
