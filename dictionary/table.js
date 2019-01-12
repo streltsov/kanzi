@@ -7,7 +7,6 @@ browser.storage.local.get().then((dict) => {
     let row = document.createElement('tr');
 
     let wordColumn = document.createElement('td');
-    wordColumn.contentEditable = "true"; 
     let wordColumnText = document.createTextNode(word);
     wordColumn.appendChild(wordColumnText);
     row.appendChild(wordColumn);
