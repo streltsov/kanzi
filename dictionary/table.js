@@ -12,13 +12,11 @@ browser.storage.local.get().then((dict) => {
     row.appendChild(wordColumn);
 
     let meaningColumn = document.createElement('td');
-    meaningColumn.contentEditable = "true"; 
     let meaningColumnText = document.createTextNode(dict[word].meaning);
     meaningColumn.appendChild(meaningColumnText);
     row.appendChild(meaningColumn);
 
     let exampleColumn = document.createElement('td');
-    exampleColumn.contentEditable = "true"; 
     let exampleColumnText = document.createTextNode(dict[word].example);
     exampleColumn.appendChild(exampleColumnText);
     row.appendChild(exampleColumn);
