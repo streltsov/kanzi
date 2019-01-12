@@ -12,29 +12,6 @@ h1 {
   display: inline-block;
 }
 
-.link {
-color: #0060df;
-font-size: 14px;
-line-height: 1.2;
-font-family: Cantarel, sans-serif;
-}
-.link:hover {
-text-decoration: underline;
-}
-.link:active {
-color: #003eaa;
-text-decoration: underline;
-}
-.link:focused {
-box-shadow: 0 0 0 2px #0a84ff, 0 0 0 6px rgba(10, 132, 255, 0.3);
-}
-
-.export-button {
-background: none;
-border: none;
-padding: 0 0 0 8px;
-}
-
 input[type="file"] {
   display: none;
 }

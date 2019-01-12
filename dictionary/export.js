@@ -1,4 +1,4 @@
-const inputElement = document.getElementById("input");
+const inputElement = document.getElementById("import-input");
 inputElement.addEventListener("change", handleFiles, false);
 
 function handleFiles() {
@@ -26,3 +26,7 @@ function printFile(file) {
   browser.tabs.reload();
   reader.readAsText(file);
 }
+
+document.getElementsByClassName('import-button')[0].addEventListener('click', function() {
+  document.getElementById('import-input').click();
+});
