@@ -22,7 +22,7 @@
       "38": "buttons/kanzi-38.png"
     },
     "default_title": "Kanzi menu",
-    "default_popup": "popup/menu.html"
+    "default_popup": "popup/popup.html"
   },
 
   "background": {
