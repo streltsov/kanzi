@@ -11,7 +11,7 @@ function wrapWord(string) {
 
   let nodes = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
       acceptNode: function(node) {
-        if (!/^\s*$/.test(node.data) && !/^(STYLE|SCRIPT)$/i.test(node.parentNode.nodeName)) {
+        if (!/^\s*$/.test(node.data)) {
           return NodeFilter.FILTER_ACCEPT;
         }
       }
@@ -22,7 +22,7 @@ function wrapWord(string) {
 
   while (nodes.nextNode()) {
 
-    while (nodes.currentNode.textContent.search(re) != -1) {
+    while (re.test(nodes.currentNode.textContent) && !/^(STYLE|SCRIPT)$/i.test(nodes.currentNode.parentNode.nodeName)) {
       let wordStart = nodes.currentNode.textContent.search(re);
       let splitNode = nodes.currentNode.splitText(wordStart);
       nodes.nextNode();
