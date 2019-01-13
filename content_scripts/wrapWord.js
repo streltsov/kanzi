@@ -24,7 +24,7 @@ function wrapWord(string) {
         let stringOnPage = nodes.currentNode.data.split(' ', wordAmount);
 
 	if (/\W|_/.test(stringOnPage[wordAmount - 1])) {
-	  stringOnPage[wordAmount - 1] = stringOnPage[wordAmount - 1].replace(/\W.*/, '');
+	  stringOnPage[wordAmount - 1] = stringOnPage[wordAmount - 1].replace(/\W.*/g, '');
 	  }
         
 	stringOnPage = stringOnPage.join(' ');
