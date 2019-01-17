@@ -9,14 +9,7 @@ function wrapWord(string) {
   regexPattern = '(\\b' + regexPattern.join(' ') + '\\b)';
   let re = new RegExp(regexPattern, 'gi');
 
-  let nodes = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
-      acceptNode: function(node) {
-        if (!/^\s*$/.test(node.data)) {
-          return NodeFilter.FILTER_ACCEPT;
-        }
-      }
-    },
-    false);
+  let nodes = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
 
   let wordAmount = string.split(' ').length;
 
