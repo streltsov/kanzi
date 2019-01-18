@@ -9,30 +9,34 @@ function wrapWord(string) {
   regexPattern = '(\\b' + regexPattern.join(' ') + '\\b)';
   let re = new RegExp(regexPattern, 'gi');
 
-  let nodes = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+  let nodes = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(node) {
+        if (re.test(node.textContent) && !/^(STYLE|SCRIPT)$/i.test(node.parentNode.nodeName))
+          return NodeFilter.FILTER_ACCEPT;
+      }
+    },
+    false);
 
   let wordAmount = string.split(' ').length;
 
   while (nodes.nextNode()) {
 
-    while (re.test(nodes.currentNode.textContent) && !/^(STYLE|SCRIPT)$/i.test(nodes.currentNode.parentNode.nodeName)) {
-      let wordStart = nodes.currentNode.textContent.search(re);
-      let splitNode = nodes.currentNode.splitText(wordStart);
-      nodes.nextNode();
+    let wordStart = nodes.currentNode.textContent.search(re);
+    let splitNode = nodes.currentNode.splitText(wordStart);
 
-      let stringOnPage = nodes.currentNode.data.split(' ', wordAmount);
+    let stringOnPage = splitNode.textContent.split(' ', wordAmount);
 
-      if (/\W|_/.test(stringOnPage[wordAmount - 1])) {
-        stringOnPage[wordAmount - 1] = stringOnPage[wordAmount - 1].replace(/\W.*/g, '');
-      }
-
-      stringOnPage = stringOnPage.join(' ');
-      nodes.currentNode.data = nodes.currentNode.data.slice(stringOnPage.length);
-      let span = document.createElement('span');
-      span.appendChild(document.createTextNode(stringOnPage));
-      nodes.currentNode.parentElement.insertBefore(span, splitNode);
-      span.className = `kz-word kz-${string.replace(/\s/g, '_')}`;
-
+    if (/\W|_/.test(stringOnPage[wordAmount - 1])) {
+      stringOnPage[wordAmount - 1] = stringOnPage[wordAmount - 1].replace(/\W.*/g, '');
     }
+
+    stringOnPage = stringOnPage.join(' ');
+    nodes.currentNode.nextSibling.data = nodes.currentNode.nextSibling.data.slice(stringOnPage.length);
+
+    let span = document.createElement('span');
+    span.appendChild(document.createTextNode(stringOnPage));
+    nodes.currentNode.parentElement.insertBefore(span, splitNode);
+    span.className = `kz-word kz-${string.replace(/\s/g, '_')}`;
+
   }
 }
