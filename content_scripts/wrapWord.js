@@ -36,7 +36,8 @@ function wrapWord(string) {
     let span = document.createElement('span');
     span.appendChild(document.createTextNode(stringOnPage));
     nodes.currentNode.parentElement.insertBefore(span, splitNode);
-    span.className = `kz-word kz-${string.replace(/\s/g, '_')}`;
+    span.style.borderBottom = '2px solid #45a1ff';
+    span.className = `kz-${string.replace(/\s/g, '_')}`;
 
   }
 }
