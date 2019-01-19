@@ -1,6 +1,6 @@
 document.getElementsByClassName("export-button")[0].addEventListener("click", function() {
-  browser.storage.local.get().then((dict) => {
-    downloadObjectAsJson(dict, "Kanzi Dictionary")
+  browser.storage.local.get('dictionary').then((d) => {
+    downloadObjectAsJson(d.dictionary, "Kanzi Dictionary")
   })
 })
 

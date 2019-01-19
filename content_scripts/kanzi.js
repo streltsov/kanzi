@@ -1,10 +1,10 @@
-browser.storage.local.get().then((dict) => {
+browser.storage.local.get('dictionary').then((d) => {
   let t0 = performance.now();
-  Object.keys(dict).forEach(word => wrapWord(word));
+  Object.keys(d.dictionary).forEach(word => wrapWord(word));
   let t1 = performance.now();
   console.log('Performance: ' + (t1 - t0) + 'milliseconds.')
-  console.log('Total words: ' + Object.keys(dict).length);
-  Object.keys(dict).forEach(word => createTooltip(word, dict[word].meaning, dict[word].example));
+  console.log('Total words: ' + Object.keys(d.dictionary).length);
+  Object.keys(d.dictionary).forEach(word => createTooltip(word, d.dictionary[word].meaning, d.dictionary[word].example));
 });
 
 browser.runtime.onMessage.addListener(request => createModal(request.selectedText));

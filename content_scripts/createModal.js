@@ -67,11 +67,12 @@ function createModal(word, meaning, example) {
 
       unwrapWord(word);
 
-      browser.storage.local.set({
-        [word]: {
+      browser.storage.local.get('dictionary').then(d => {
+        d.dictionary[word] = {
           meaning: meaning,
           example: example
         }
+        browser.storage.local.set(d)
       });
 
       modal.remove();

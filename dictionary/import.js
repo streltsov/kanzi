@@ -9,19 +9,13 @@ function handleFiles() {
 function printFile(file) {
   var reader = new FileReader();
   reader.onload = function(evt) {
-    browser.storage.local.get().then((dict) => {
+
+    browser.storage.local.get('dictionary').then((d) => {
       let iDict = JSON.parse(evt.target.result);
-      Object.keys(iDict).forEach(word => {
-        if (!dict.hasOwnProperty(word)) {
-          browser.storage.local.set({
-            [word]: {
-              meaning: iDict[word].meaning,
-              example: iDict[word].example
-            }
-          });
-        }
-      })
+      d.dictionary = Object.assign(d.dictionary, iDict);
+      browser.storage.local.set(d);
     })
+
   };
   browser.tabs.reload();
   reader.readAsText(file);

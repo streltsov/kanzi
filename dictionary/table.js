@@ -1,8 +1,8 @@
-browser.storage.local.get().then((dict) => {
-  let wordsInTotal = document.createTextNode(Object.keys(dict).length);
+browser.storage.local.get('dictionary').then((d) => {
+  let wordsInTotal = document.createTextNode(Object.keys(d.dictionary).length);
   document.getElementsByClassName('words-in-total')[0].appendChild(wordsInTotal);
 
-  Object.keys(dict).sort().forEach(word => {
+  Object.keys(d.dictionary).sort().forEach(word => {
 
     let row = document.createElement('tr');
     row.id = word.trim().replace(/\s/g, '_');
@@ -13,12 +13,12 @@ browser.storage.local.get().then((dict) => {
     row.appendChild(wordColumn);
 
     let meaningColumn = document.createElement('td');
-    let meaningColumnText = document.createTextNode(dict[word].meaning);
+    let meaningColumnText = document.createTextNode(d.dictionary[word].meaning);
     meaningColumn.appendChild(meaningColumnText);
     row.appendChild(meaningColumn);
 
     let exampleColumn = document.createElement('td');
-    let exampleColumnText = document.createTextNode(dict[word].example);
+    let exampleColumnText = document.createTextNode(d.dictionary[word].example);
     exampleColumn.appendChild(exampleColumnText);
     row.appendChild(exampleColumn);
 

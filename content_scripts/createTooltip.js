@@ -23,7 +23,12 @@ function createTooltip(word, meaning, example) {
       trashButton.className = 'kz-tooltip__trash-button';
       trashButton.onclick = () => {
         unwrapWord(word);
-        browser.storage.local.remove(word);
+
+        browser.storage.local.get('dictionary').then(d => {
+          delete d.dictionary[word];
+	  browser.storage.local.set(d)
+        });
+
       }
       let trashButtonIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       let trashButtonIconPath = document.createElementNS("http://www.w3.org/2000/svg", 'path');
