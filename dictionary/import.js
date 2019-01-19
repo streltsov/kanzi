@@ -9,9 +9,11 @@ function handleFiles() {
 function printFile(file) {
   var reader = new FileReader();
   reader.onload = function(evt) {
-
+    let json = evt.target.result.replace(/"([^"]+)":/g, function($0, $1) {
+      return ('"' + $1.toLowerCase() + '":');
+    });
     browser.storage.local.get('dictionary').then((d) => {
-      let iDict = JSON.parse(evt.target.result);
+      let iDict = JSON.parse(json);
       d.dictionary = Object.assign(d.dictionary, iDict);
       browser.storage.local.set(d);
     })
