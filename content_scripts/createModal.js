@@ -96,6 +96,7 @@ function createModal(word, meaning, example) {
   modal.appendChild(modalContent);
 
   let shadowDomRoot = document.createElement('div');
+  shadowDomRoot.className = 'shadow-dom-root-modal';
   let shadow = shadowDomRoot.attachShadow({
     mode: 'open'
   });
@@ -111,8 +112,8 @@ function createModal(word, meaning, example) {
 }
 
 window.addEventListener("keydown", function(evt) {
-  if (evt.keyCode === 27 && document.querySelector(".kz-overlay")) {
+  if (evt.keyCode === 27 && document.querySelector(".shadow-dom-root-modal")) {
     evt.preventDefault();
-    document.querySelector(".kz-overlay").remove();
+    document.querySelector(".shadow-dom-root-modal").remove();
   }
 });
