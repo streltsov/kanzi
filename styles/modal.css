@@ -1,45 +1,45 @@
 .kz-overlay {
-  position: fixed;
-  z-index: 100;
-  padding-top: 150px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(12, 12, 13, 0.6);
+  position: fixed !important;
+  z-index: 100 !important;
+  padding-top: 150px !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: auto !important;
+  background-color: rgba(12, 12, 13, 0.6) !important;
 }
 
 .kz-modal-content {
-  display: flex;
-  flex-direction: column;
-  background-color: #f9f9fa;
-  border: 2px solid rgba(12, 12, 13, 0.2);
-  border-radius: 2px;
-  max-width: 40%;
-  margin: 0 auto;
-  padding: 0 16px;
-  position: relative;
+  display: flex !important;
+  flex-direction: column !important;
+  background-color: #f9f9fa !important;
+  border: 2px solid rgba(12, 12, 13, 0.2) !important;
+  border-radius: 2px !important;
+  max-width: 40% !important;
+  margin: 0 auto !important;
+  padding: 0 16px !important;
+  position: relative !important;
 }
 
 
 .kz-word-field {
   background: #f9f9fa !important;
-  border: none;
-  color: #ff0039;
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
-  font-size: 36px;
-  padding: 0;
-  margin-top: 8px;
-  text-align: center;
+  border: none !important;
+  color: #ff0039 !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-weight: 300 !important;
+  font-size: 36px !important;
+  padding: 0 !important;
+  margin-top: 8px !important;
+  text-align: center !important;
 }
 
 .kz-meaning-label,
 .kz-example-label {
-  color: #0c0c0d;
-  margin-bottom: 4px;
-  font-size: 0.833rem;
+  color: #0c0c0d !important;
+  margin-bottom: 4px !important;
+  font-size: 0.833rem !important;
 }
 
 .kz-example-label {
@@ -48,15 +48,15 @@
 
 .kz-meaning-field,
 .kz-example-field {
-  padding: 8px;
-  width: auto;
-  height: 32px;
-  border-radius: 2px;
-  resize: none;
-  border: 1px solid rgba(12, 12, 13, 0.2);
-  color: #0c0c0d;
-  background-color: white;
-  box-sizing: content-box;
+  padding: 8px !important;
+  width: auto !important;
+  height: 32px !important;
+  border-radius: 2px !important;
+  resize: none !important;
+  border: 1px solid rgba(12, 12, 13, 0.2) !important;
+  color: #0c0c0d !important;
+  background-color: white !important;
+  box-sizing: content-box !important;
 }
 
 .kz-meaning-field::placeholder,
@@ -66,26 +66,26 @@
 
 .kz-meaning-field:focus,
 .kz-example-field:focus {
-  border: 1px solid #0a84ff;
-  box-shadow: 0 0 0 1px #0a84ff, 0 0 0 4px rgba(10, 132, 255, 0.3);
+  border: 1px solid #0a84ff !important;
+  box-shadow: 0 0 0 1px #0a84ff, 0 0 0 4px rgba(10, 132, 255, 0.3) !important;
 }
 
 .kz-meaning-field:hover,
 .kz-example-field:hover {
-  border: 1px solid rgba(12, 12, 13, 0.3);
+  border: 1px solid rgba(12, 12, 13, 0.3) !important;
 }
 
 .kz-add-button {
-  align-self: flex-end;
-  background-color: #0060df;
-  border: none;
-  color: #fff;
-  border-radius: 2px;
-  font-size: 13px;
-  font-weight: 400;
-  height: 32px;
-  min-width: 132px;
-  padding: 0 8px;
+  align-self: flex-end !important;
+  background-color: #0060df !important;
+  border: none !important;
+  color: #fff !important;
+  border-radius: 2px !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  height: 32px !important;
+  min-width: 132px !important;
+  padding: 0 8px !important;
   margin: 8px 0 12px 0
 }
 
@@ -102,35 +102,35 @@
 }
 
 .kz-close-button {
-  background-color: transparent;
-  border: none;
-  border-radius: 2px;
-  position: absolute;
-  right: 8px;
-  top: 8px;
-  padding: 4px;
-  margin: 0;
-  height: 32px;
-  width: 32px;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 2px !important;
+  position: absolute !important;
+  right: 8px !important;
+  top: 8px !important;
+  padding: 4px !important;
+  margin: 0 !important;
+  height: 32px !important;
+  width: 32px !important;
 }
 
 svg {
-  display: block
+  display: block !important;
 }
 
 .kz-close-button:hover {
-  background-color: rgba(12, 12, 13, 0.1)
+  background-color: rgba(12, 12, 13, 0.1) !important;
 }
 
 .kz-close-button:active {
-  background-color: rgba(12, 12, 13, 0.2)
+  background-color: rgba(12, 12, 13, 0.2) !important;
 }
 
 .kz-close-button:focus {
-  box-shadow: 0 0 0 1px #0a84ff inset, 0 0 0 1px #0a84ff, 0 0 0 4px rgba(10, 132, 255, 0.3)
+  box-shadow: 0 0 0 1px #0a84ff inset, 0 0 0 1px #0a84ff, 0 0 0 4px rgba(10, 132, 255, 0.3) !important;
 }
 
 .kz-word-field,           /* Fixes Grammarly wordField overlap when changing fields */
 .kz-close-button {
-    z-index: 2
+    z-index: 2 !important;
 }

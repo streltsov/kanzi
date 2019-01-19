@@ -1,69 +1,69 @@
 .kz-word {
-  border-bottom: 2px solid #45a1ff;
+  border-bottom: 2px solid #45a1ff !important;
 }
 
 .kz-tooltip {
-  display: flex;
-  flex-direction: column;
-  font-weight: 400
+  display: flex !important;
+  flex-direction: column !important;
+  font-weight: 400 !important;
 }
 
 .kz-tooltip__word-span {
-  font-size: 22px;
-  color: red;
-  font-family: 'Cormorant Garamond', serif;
-  padding: 0 60px
+  font-size: 22px !important;
+  color: red !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  padding: 0 60px !important;
 }
 
 .kz-tooltip__meaning-span {
-  font-size: 10px;
-  color: #535455;
-  margin-top: 4px
+  font-size: 10px !important;
+  color: #535455 !important;
+  margin-top: 4px !important;
 }
 
 .kz-tooltip__example-span {
-  font-size: 10px;
-  font-style: italic;
-  color: #535455;
-  margin-top: 4px;
-  margin-bottom: 4px
+  font-size: 10px !important;
+  font-style: italic !important;
+  color: #535455 !important;
+  margin-top: 4px !important;
+  margin-bottom: 4px !important;
 }
 
 .kz-tooltip__edit-button {
-  height: 24px;
-  width: 24px;
-  right: 34px;
-  border: none;
-  background: transparent
+  height: 24px !important;
+  width: 24px !important;
+  right: 34px !important;
+  border: none !important;
+  background: transparent !important;
 }
 
 .kz-tooltip__trash-button {
-  height: 24px;
-  width: 24px;
-  right: 8px;
-  border: none;
-  background: transparent
+  height: 24px !important;
+  width: 24px !important;
+  right: 8px !important;
+  border: none !important;
+  background: transparent !important;
 }
 
 .kz-tooltip__edit-button,
 .kz-tooltip__trash-button {
-  position: absolute;
-  top: 8px;
-  border-radius: 2px;
-  padding: 4px
+  position: absolute !important;
+  top: 8px !important;
+  border-radius: 2px !important;
+  padding: 4px !important;
 }
 
 .kz-tooltip__edit-button:hover,
 .kz-tooltip__trash-button:hover {
-  background-color: rgba(12, 12, 13, 0.1)
+  background-color: rgba(12, 12, 13, 0.1) !important;
 }
 
 .kz-tooltip__edit-button:active,
 .kz-tooltip__trash-button:active {
-  background-color: rgba(12, 12, 13, 0.2)
+  background-color: rgba(12, 12, 13, 0.2) !important;
 }
 
 .kz-tooltip__edit-button:focus,
 .kz-tooltip__trash-button:focus {
-  box-shadow: 0 0 0 1px #0a84ff inset, 0 0 0 1px #0a84ff, 0 0 0 4px rgba(10, 132, 255, 0.3)
+  box-shadow: 0 0 0 1px #0a84ff inset, 0 0 0 1px #0a84ff, 0 0 0 4px rgba(10, 132, 255, 0.3) !important;
 }
