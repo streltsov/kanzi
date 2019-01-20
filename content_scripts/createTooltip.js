@@ -84,7 +84,7 @@ function createTooltip(word, meaning, example) {
 
     duration: [0, 400],
     interactive: true,
-    placement: "right",
+    placement: "top",
     arrow: true,
     arrowTransform: "scaleX(2)",
     theme: "light",
