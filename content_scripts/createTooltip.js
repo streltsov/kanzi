@@ -69,12 +69,13 @@ function createTooltip(word, meaning, example) {
       }
 
       let shadowDomRoot = document.createElement('div');
+      shadowDomRoot.className = 'shadow-dom-root';
       let shadow = shadowDomRoot.attachShadow({
         mode: 'open'
       });
       let style = document.createElement('style');
 
-      style.textContent = `.kz-tooltip{display:flex;flex-direction:column;font-weight:400}.kz-tooltip__word-span{font-size:22px;color:red;font-family:'Cormorant Garamond', serif;padding:0 60px}.kz-tooltip__meaning-span{font-size:10px;color:#535455;margin-top:4px}.kz-tooltip__example-span{font-size:10px;font-style:italic;color:#535455;margin-top:4px;margin-bottom:4px}.kz-tooltip__edit-button{height:24px;width:24px;right:34px;border:none;background:transparent}.kz-tooltip__trash-button{height:24px;width:24px;right:8px;border:none;background:transparent}.kz-tooltip__edit-button,.kz-tooltip__trash-button{position:absolute;top:8px;border-radius:2px;padding:4px}.kz-tooltip__edit-button:hover,.kz-tooltip__trash-button:hover{background-color:rgba(12, 12, 13, 0.1)}.kz-tooltip__edit-button:active,.kz-tooltip__trash-button:active{background-color:rgba(12, 12, 13, 0.2)}.kz-tooltip__edit-button:focus,.kz-tooltip__trash-button:focus{box-shadow:0 0 0 1px #0a84ff inset, 0 0 0 1px #0a84ff, 0 0 0 4px rgba(10, 132, 255, 0.3)}`;
+      style.textContent = `.shadow-dom-root{font-size:16px;}.kz-tooltip{display:flex;flex-direction:column;font-weight:400}.kz-tooltip__word-span{font-size:2em;color:red;font-family:'Cormorant Garamond', serif;padding:0 60px}.kz-tooltip__meaning-span{font-size:1empx;color:#535455;margin-top:4px}.kz-tooltip__example-span{font-size:1em;font-style:italic;color:#535455;margin-top:4px;margin-bottom:4px}.kz-tooltip__edit-button{height:24px;width:24px;right:34px;border:none;background:transparent}.kz-tooltip__trash-button{height:24px;width:24px;right:8px;border:none;background:transparent}.kz-tooltip__edit-button,.kz-tooltip__trash-button{position:absolute;top:8px;border-radius:2px;padding:4px}.kz-tooltip__edit-button:hover,.kz-tooltip__trash-button:hover{background-color:rgba(12, 12, 13, 0.1)}.kz-tooltip__edit-button:active,.kz-tooltip__trash-button:active{background-color:rgba(12, 12, 13, 0.2)}.kz-tooltip__edit-button:focus,.kz-tooltip__trash-button:focus{box-shadow:0 0 0 1px #0a84ff inset, 0 0 0 1px #0a84ff, 0 0 0 4px rgba(10, 132, 255, 0.3)}`;
 
       shadow.appendChild(style);
       shadow.appendChild(tooltip);
