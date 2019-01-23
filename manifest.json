@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "Kanzi",
-  "version": "1.3.7",
+  "version": "1.3.8",
   "description": "Kanzi - vocabulary builder",
 
   "applications": {
