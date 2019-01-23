@@ -17,7 +17,7 @@ function createTooltip(word, meaning, example) {
       editButtonIcon.setAttribute("height", "16");
       editButtonIcon.appendChild(editButtonIconPath);
       editButton.appendChild(editButtonIcon);
-      tooltip.appendChild(editButton)
+      tooltip.appendChild(editButton);
 
       let trashButton = document.createElement('button');
       trashButton.className = 'kz-tooltip__trash-button';
@@ -26,10 +26,10 @@ function createTooltip(word, meaning, example) {
 
         browser.storage.local.get('dictionary').then(d => {
           delete d.dictionary[word];
-          browser.storage.local.set(d)
+          browser.storage.local.set(d);
         });
 
-      }
+      };
       let trashButtonIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       let trashButtonIconPath = document.createElementNS("http://www.w3.org/2000/svg", 'path');
       //trashButtonIconPath.setAttribute("d", "M20 5h-5a3 3 0 1 0-6 0H4a1 1 0 0 0 0 2h1v12a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V7h1a1 1 0 1 0 0-2zm-8-2a2 2 0 0 1 2 2h-4a2 2 0 0 1 2-2zM7 7v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V7H7zm2.539 2.002a.5.5 0 0 0-.503.498l-.034 8a.5.5 0 0 0 1 .004l.034-8a.5.5 0 0 0-.497-.502zm4.497.498a.5.5 0 0 1 1 .004l-.034 8a.5.5 0 0 1-1-.004l.034-8zM12 9.002a.5.5 0 0 0-.502.498l-.034 8a.5.5 0 0 0 1 .004l.034-8A.5.5 0 0 0 12 9.002z");
@@ -42,7 +42,7 @@ function createTooltip(word, meaning, example) {
       trashButtonIcon.setAttribute("height", "16");
       trashButtonIcon.appendChild(trashButtonIconPath);
       trashButton.appendChild(trashButtonIcon);
-      tooltip.appendChild(trashButton)
+      tooltip.appendChild(trashButton);
 
       let wordSpan = document.createElement('span');
       wordSpan.className = 'kz-tooltip__word-span';
@@ -56,7 +56,7 @@ function createTooltip(word, meaning, example) {
         meaningSpan.className = 'kz-tooltip__meaning-span';
         let meaningSpanText = document.createTextNode(': ' + meaning);
         meaningSpan.appendChild(meaningSpanText);
-        tooltip.appendChild(meaningSpan)
+        tooltip.appendChild(meaningSpan);
       }
 
       if (example.replace(/\s/g, '').length) {
@@ -65,7 +65,7 @@ function createTooltip(word, meaning, example) {
         exampleSpan.className = 'kz-tooltip__example-span';
         let exampleSpanText = document.createTextNode('For example: «' + example + '»');
         exampleSpan.appendChild(exampleSpanText);
-        tooltip.appendChild(exampleSpan)
+        tooltip.appendChild(exampleSpan);
       }
 
       let shadowDomRoot = document.createElement('div');

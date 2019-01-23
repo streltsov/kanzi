@@ -24,7 +24,7 @@ function createModal(word, meaning, example) {
   meaningField.placeholder = 'Enter a meaning';
   meaningField.maxLength = '5000';
   meaningField.className = 'kz-meaning-field';
-  meaningField.id = 'kz-meaning-field'
+  meaningField.id = 'kz-meaning-field';
   if (meaningField) meaningField.value = meaning;
 
   let exampleLabel = document.createElement('label');
@@ -53,7 +53,7 @@ function createModal(word, meaning, example) {
   closeButtonIconPath.setAttribute('fill', 'rgba(12, 12, 13, .8)');
   closeButtonIconPath.setAttribute('d', 'M5.293 6.707a1 1 0 1 1 1.414-1.414L12 10.586l5.293-5.293a1 1 0 1 1 1.414 1.414L13.414 12l5.293 5.293a1 1 0 0 1-1.414 1.414L12 13.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L10.586 12 5.293 6.707z');
   closeButtonIcon.appendChild(closeButtonIconPath);
-  closeButton.appendChild(closeButtonIcon)
+  closeButton.appendChild(closeButtonIcon);
 
   let addButton = document.createElement('button');
   addButton.className = 'kz-add-button';
@@ -71,8 +71,8 @@ function createModal(word, meaning, example) {
         d.dictionary[word] = {
           meaning: meaning,
           example: example
-        }
-        browser.storage.local.set(d)
+        };
+        browser.storage.local.set(d);
       });
 
       modal.remove();
@@ -80,11 +80,11 @@ function createModal(word, meaning, example) {
       createTooltip(word, meaning, example);
 
     } else {
-      alert("Word field couldn't be empty!")
-    };
-  }
+      alert("Word field couldn't be empty!");
+    }
+  };
 
-  let addButtonText = document.createTextNode('Done')
+  let addButtonText = document.createTextNode('Done');
   addButton.appendChild(addButtonText);
   modalContent.appendChild(wordField);
   modalContent.appendChild(meaningLabel);
