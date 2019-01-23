@@ -1,4 +1,4 @@
-browser.runtime.onInstalled.addListener(function(details) {
+browser.runtime.onInstalled.addListener(function() {
   browser.storage.local.get().then(storage => {
 
     if (!storage.hasOwnProperty('dictionary')) {
@@ -9,9 +9,7 @@ browser.runtime.onInstalled.addListener(function(details) {
 
     if (!storage.hasOwnProperty('options')) {
       browser.storage.local.set({
-        options: {
-          fontsize: '12'
-        }
+        options: {}
       });
     }
 

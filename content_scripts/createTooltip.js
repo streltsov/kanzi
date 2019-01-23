@@ -71,7 +71,11 @@ function createTooltip(word, meaning, example) {
       let shadowDomRoot = document.createElement('div');
 
       browser.storage.local.get('options').then(o => {
-        shadowDomRoot.style.fontSize = o.options.fontsize + 'px';
+        if (o.options.fontsize) {
+          shadowDomRoot.style.fontSize = o.options.fontsize + 'px';
+        } else {
+          shadowDomRoot.style.fontSize = '12px';
+        }
       });
 
       let shadow = shadowDomRoot.attachShadow({

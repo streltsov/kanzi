@@ -3,7 +3,7 @@ let fontSize = document.getElementById('font-size');
 let options = browser.storage.local.get('options');
 
 options.then(o => {
-  fontSize.value = o.options.fontsize;
+  fontSize.value = o.options.fontsize || 12;
 });
 
 fontSize.addEventListener('change', function() {
