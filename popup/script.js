@@ -4,3 +4,8 @@ document.getElementsByClassName("dictionary")[0].addEventListener("click", funct
   });
   window.close();
 });
+
+document.getElementsByClassName("preferences")[0].addEventListener("click", function() {
+  browser.runtime.openOptionsPage()
+  window.close();
+});
