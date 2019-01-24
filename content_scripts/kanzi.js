@@ -1,4 +1,4 @@
-browser.storage.local.get('dictionary').then((d) => {
+window.onload = browser.storage.local.get('dictionary').then((d) => {
   let t0 = performance.now();
   Object.keys(d.dictionary).forEach(word => wrapWord(word));
   let t1 = performance.now();
