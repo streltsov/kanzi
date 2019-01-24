@@ -16,7 +16,11 @@ fontSize.addEventListener('change', function() {
 
 //SUFFIXES
 options.then(o => {
-  document.querySelector('input[value="' + o.options.suffixes + '"]').checked = true;
+  if (o.options.suffixes) {
+    document.querySelector('input[value="' + o.options.suffixes + '"]').checked = true;
+  } else {
+    document.querySelector('input[value="english"]').checked = true;
+  }
 });
 
 document.querySelector('#suffixes').addEventListener('click', function() {
