@@ -1,6 +1,7 @@
+let options = browser.storage.local.get('options');
+
 //FONT SIZE
 let fontSize = document.getElementById('font-size');
-let options = browser.storage.local.get('options');
 
 options.then(o => {
   fontSize.value = o.options.fontsize || 12;
@@ -9,6 +10,18 @@ options.then(o => {
 fontSize.addEventListener('change', function() {
   options.then(o => {
     o.options.fontsize = fontSize.value;
+    browser.storage.local.set(o);
+  });
+});
+
+//SUFFIXES
+options.then(o => {
+  document.querySelector('input[value="' + o.options.suffixes + '"]').checked = true;
+});
+
+document.querySelector('#suffixes').addEventListener('click', function() {
+  options.then(o => {
+    o.options.suffixes = document.querySelector('input[name="suffixes"]:checked').value;
     browser.storage.local.set(o);
   });
 });
