@@ -19,7 +19,7 @@ function wrapWord(string) {
     let stringOnPage = splitNode.textContent.split(' ', wordAmount);
 
     if (XRegExp('\\PL').test(stringOnPage[wordAmount - 1])) {
-      stringOnPage[wordAmount - 1] = stringOnPage[wordAmount - 1].replace(XRegExp('\\PL.*'), '');
+      stringOnPage[wordAmount - 1] = stringOnPage[wordAmount - 1].replace(XRegExp('\\PL.*', 'g'), '');
     }
 
     stringOnPage = stringOnPage.join(' ');
