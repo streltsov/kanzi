@@ -2,7 +2,7 @@ let suffixes;
 browser.storage.local.get('options').then(o => {
   switch (o.options.suffixes) {
     case 'english':
-      suffixes = '{0,2}(i?ed|i?e?s|ings?|in\'|er|or|y|i?ly|i?e?ty|ive|ally|able|ion|tion|ation|ition|ication|ness)';
+      suffixes = '{0,2}(ied|ed|s|es|ies|ing|ings|er|ers|or|ors|y|ly|ily|ty|ity|ety|ive|ally|able|ion|tion|ation|ition|ication|ness)';
       break;
     case 'none':
       suffixes = '';
