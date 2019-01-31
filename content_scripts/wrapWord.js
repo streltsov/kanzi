@@ -30,7 +30,7 @@ function wrapWord(string) {
     span.appendChild(document.createTextNode(stringOnPage));
     nodes.currentNode.parentElement.insertBefore(span, splitNode);
     span.style.borderBottom = '2px solid #45a1ff';
-    span.style.display = 'inline-block';
+    span.style.display = 'inline';
     span.className = `kz-${string.replace(/\s/g, '_')}`;
 
   }
