@@ -9,7 +9,7 @@ function options(storage) {
   switch (storage.options.suffixes) {
     case 'english':
     default:
-      suffixes = '{0,2}(ied|ed|s|es|ies|ing|ings|er|ers|or|ors|y|ly|ily|ty|ity|ety|ive|al|ally|able|ion|tion|ation|ition|ication|ness)';
+      suffixes = '{0,2}(ied|ed|s|es|ies|ing|ings|er|ers|or|ors|y|ly|ily|ty|ity|ety|ive|al|ally|able|ion|ions|ious|tion|ation|ition|ication|iness|ness|ment|ure|ish|ingly)';
       break;
     case 'custom':
       suffixes = storage.options.custom_suffixes || 'Nothing'
