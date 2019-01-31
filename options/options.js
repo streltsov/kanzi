@@ -16,11 +16,15 @@ fontSize.addEventListener('change', function() {
 
 //SUFFIXES
 options.then(o => {
+
   if (o.options.suffixes) {
     document.querySelector('input[value="' + o.options.suffixes + '"]').checked = true;
   } else {
     document.querySelector('input[value="english"]').checked = true;
   }
+
+  document.querySelector('#custom-suffixes').value = o.options.custom_suffixes;
+
 });
 
 document.querySelector('#suffixes').addEventListener('click', function() {
@@ -29,3 +33,13 @@ document.querySelector('#suffixes').addEventListener('click', function() {
     browser.storage.local.set(o);
   });
 });
+
+document.querySelector('#custom-suffixes').addEventListener('change', function() {
+  options.then(o => {
+    let usersInput = document.querySelector('#custom-suffixes').value;
+    customSuffixes = '{0,2}(' + usersInput.replace(/\s+/g, '|') + ')';
+    o.options.custom_suffixes = customSuffixes;
+    browser.storage.local.set(o);
+  });
+});
+
