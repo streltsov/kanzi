@@ -11,3 +11,9 @@ browser.menus.onClicked.addListener(function(info, tab) {
     })
   }
 });
+
+browser.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+  sendResponse({
+    response: sender.tab.isArticle
+  });
+});
