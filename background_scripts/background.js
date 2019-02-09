@@ -1,3 +1,11 @@
+browser.tabs.onUpdated.addListener(function(tabId, changeInfo, tabInfo) {
+  if (changeInfo.isArticle) {
+    browser.tabs.sendMessage(tabId, {
+      isArticle: changeInfo.isArticle
+    })
+  }
+});
+
 browser.menus.create({
   id: "add-selected-word",
   title: "Add «%s» to kanzi",
@@ -10,10 +18,4 @@ browser.menus.onClicked.addListener(function(info, tab) {
       selectedText: info.selectionText
     })
   }
-});
-
-browser.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  sendResponse({
-    response: sender.tab.isArticle
-  });
 });
