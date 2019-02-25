@@ -1,10 +1,16 @@
-browser.tabs.onUpdated.addListener(function(tabId, changeInfo, tabInfo) {
-  if (changeInfo.isArticle) {
-    browser.tabs.sendMessage(tabId, {
-      isArticle: changeInfo.isArticle
-    })
+function handleMessage(message, sender, sendResponse) {
+  if (message.loading == 'complete') {
+    if (sender.tab.isArticle) {
+      sendResponse({
+        response: "Article"
+      });
+    } else {
+      console.log('Not an article');
+    }
   }
-});
+}
+
+browser.runtime.onMessage.addListener(handleMessage);
 
 browser.menus.create({
   id: "add-selected-word",
