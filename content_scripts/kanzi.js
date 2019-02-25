@@ -4,7 +4,6 @@ browser.runtime.sendMessage({
 
   if (message.response = 'Article') {
 
-
     browser.storage.local.get().then(storage => {
       let t0 = performance.now();
       suffixes = '{0,2}(ied|ed|s|es|ies|ing|ings|er|ers|or|ors|y|ly|ily|ty|ity|ety|ive|al|ally|able|ion|ions|ious|tion|ation|ition|ication|iness|ness|ment|ure|ish|ingly|ary)';
@@ -18,7 +17,11 @@ browser.runtime.sendMessage({
 
 });
 
-browser.runtime.onMessage.addListener(request => createModal(request.selectedText));
+browser.runtime.onMessage.addListener(request => {
+  if (request.selectedText) {
+    createModal(request.selectedText);
+  }
+});
 
 function unwrapWord(word) {
   word = word.trim().toLowerCase();
