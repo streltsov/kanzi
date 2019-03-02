@@ -1,6 +1,16 @@
 function wrapWord(string) {
 
-  let re = makeRegex(string);
+  let pattern;
+  if (/\s/.test(string)) {
+    pattern = string.split(' ');
+    pattern.forEach(function(value, i, array) {
+      array[i] = value + '?\\w{0,3}';
+    });
+    pattern = pattern.join(' ');
+  } else {
+    pattern = string + '?\\w{0,3}';
+  }
+  let re = new RegExp(pattern, 'gi');
 
   let nodes = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
       acceptNode: function(node) {
