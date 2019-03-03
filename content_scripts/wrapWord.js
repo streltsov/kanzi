@@ -1,20 +1,9 @@
 function wrapWord(string) {
-
-  let pattern;
-  if (/\s/.test(string)) {
-    pattern = string.split(' ');
-    pattern.forEach(function(value, i, array) {
-      array[i] = value + '?\\w{0,3}';
-    });
-    pattern = pattern.join(' ');
-  } else {
-    pattern = string + '?\\w{0,3}';
-  }
-  let re = new RegExp(pattern, 'gi');
+  let re = makeRegex(string);
 
   let nodes = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
       acceptNode: function(node) {
-        if (re.test(node.textContent) && !/^(STYLE|SCRIPT)$/i.test(node.parentNode.nodeName))
+        if (re.test(node.textContent) && !/^(STYLE|SCRIPT)$/i.test(node.parentNode.nodeName)) //Test!!!
           return NodeFilter.FILTER_ACCEPT;
       }
     },
@@ -26,7 +15,6 @@ function wrapWord(string) {
 
     let wordStart = nodes.currentNode.textContent.search(re);
     let splitNode = nodes.currentNode.splitText(wordStart);
-
     let stringOnPage = splitNode.textContent.split(' ', wordAmount);
 
     if (XRegExp('\\PL').test(stringOnPage[wordAmount - 1])) {
