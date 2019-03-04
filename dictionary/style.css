@@ -12,8 +12,33 @@ h1 {
   display: flex;
 }
 
-.panel p {
+.space {
   flex-grow: 1;
+}
+
+input[type="text"] {
+  background-color: #ffffff;
+  color: #0c0c0d;
+  border-radius: 2px;
+  padding: 0 8px;
+  margin-left: 12px;
+  width: auto;
+  height: 32px;
+  border: 2px solid rgba(12, 12, 13, 0.2);
+}
+
+input[type="text"]::placeholder {
+  color: #737373;
+  font-size: 0.833rem/1.4;
+}
+
+input[type="text"]:hover {
+  border-color: rgba(12, 12, 13, 0.3);
+}
+
+input[type="text"]:focus {
+  border-color: #0a84ff;
+  box-shadow: 0 0 0 1px #0a84ff, 0 0 0 4px rgba(10, 132, 255, 0.3);
 }
 
 button {

@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
   <title>Kanzi Dictionary</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -12,13 +12,15 @@
 
   <div class="panel">
     <p>Words in total: <span class="words-in-total"></span></p>
+    <input type="text" id="word-finder-input" placeholder="Search for word">
+    <span class="space"></span>
     <button class="export-button">Export JSON</button>
     <button class="import-button">Import JSON</button>
     <input type="file" id="import-input">
     <button class="delete-all-button">Delete all</button>
   </div>
 
-  <table>
+  <table id="dictionary-table">
     <tr>
       <th>Word</th>
       <th>Meaning</th>
@@ -30,6 +32,7 @@
   <script src="import.js"></script>
   <script src="export.js"></script>
   <script src="deleteAll.js"></script>
+  <script src="wordFinder.js"></script>
 </body>
 
 </html>
