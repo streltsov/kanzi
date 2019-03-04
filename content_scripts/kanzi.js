@@ -32,7 +32,7 @@ function makeRegex(string) {
     });
     pattern = pattern.join(' ');
   } else {
-    pattern = string + suffixes + '\\b';
+    pattern = string + '\\b|\\b' + string + suffixes + '\\b';
   }
   return new RegExp('\\b' + pattern, 'gi');
 }
