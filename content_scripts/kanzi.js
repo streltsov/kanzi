@@ -1,11 +1,8 @@
-let bodyText = document.getElementsByTagName('body')[0].textContent;
-let entriesOnPage = [];
-
 browser.storage.local.get().then(storage => {
-  let t0 = performance.now();
+  let bodyText = document.getElementsByTagName('body')[0].textContent;
+  let entriesOnPage = [];
 
   Object.keys(storage.dictionary).forEach(string => {
-
     let re = makeRegex(string);
     if (re.test(bodyText)) {
       entriesOnPage.push(string);
@@ -13,19 +10,10 @@ browser.storage.local.get().then(storage => {
   });
 
   entriesOnPage.forEach(word => wrapWord(word));
-  Object.keys(storage.dictionary).forEach(word => {
-    createTooltip(word, storage.dictionary[word].meaning, storage.dictionary[word].example)
-  });
-
-  let t1 = performance.now();
-  console.log(document.getElementsByClassName('kz-word').length + ' words processed in ' + (t1 - t0) + ' milliseconds')
+  entriesOnPage.forEach(word => createTooltip(word, storage.dictionary[word].meaning, storage.dictionary[word].example));
 });
 
-browser.runtime.onMessage.addListener(request => {
-  if (request.selectedText) {
-    createModal(request.selectedText);
-  }
-});
+browser.runtime.onMessage.addListener(request => createModal(request.selectedText));
 
 function unwrapWord(word) {
   word = word.trim().toLowerCase();
@@ -34,7 +22,7 @@ function unwrapWord(word) {
   });
 }
 
-suffixes = '{0,2}(ied|ed|s|es|ies|ing|ings|er|ers|or|ors|y|ly|ily|ty|ity|ety|ive|al|ally|able|ion|ions|ious|tion|ation|ition|ication|iness|ness|ment|ure|ish|ingly|ary)';
+let suffixes = '{0,2}(ied|ed|s|es|ies|ing|ings|er|ers|or|ors|y|ly|ily|ty|ity|ety|ive|al|ally|able|ion|ions|ious|tion|ation|ition|ication|iness|ness|ment|ure|ish|ingly|ary)';
 function makeRegex(string) {
   let pattern;
   if (/\s/.test(string)) {
