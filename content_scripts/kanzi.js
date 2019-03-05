@@ -1,18 +1,11 @@
 browser.storage.local.get().then(storage => {
   let bodyText = document.getElementsByTagName('body')[0].textContent;
-  let entriesOnPage = [];
-
-  Object.keys(storage.dictionary).forEach(string => {
-    if (createRegex(string).test(bodyText)) {
-      entriesOnPage.push(string);
-    }
-  });
+  let entriesOnPage = Object.keys(storage.dictionary).filter(string => createRegex(string).test(bodyText));
 
   entriesOnPage.forEach(word => {
     wrapWord(word);
     createTooltip(word, storage.dictionary[word].meaning, storage.dictionary[word].example)
   });
-
 });
 
 browser.runtime.onMessage.addListener(request => createModal(request.selectedText));
