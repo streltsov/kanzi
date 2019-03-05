@@ -9,8 +9,11 @@ browser.storage.local.get().then(storage => {
     }
   });
 
-  entriesOnPage.forEach(word => wrapWord(word));
-  entriesOnPage.forEach(word => createTooltip(word, storage.dictionary[word].meaning, storage.dictionary[word].example));
+  entriesOnPage.forEach(word => {
+    wrapWord(word);
+    createTooltip(word, storage.dictionary[word].meaning, storage.dictionary[word].example)
+  });
+
 });
 
 browser.runtime.onMessage.addListener(request => createModal(request.selectedText));
@@ -23,6 +26,7 @@ function unwrapWord(word) {
 }
 
 let suffixes = '{0,2}(ied|ed|s|es|ies|ing|ings|er|ers|or|ors|y|ly|ily|ty|ity|ety|ive|al|ally|able|ion|ions|ious|tion|ation|ition|ication|iness|ness|ment|ure|ish|ingly|ary)';
+
 function makeRegex(string) {
   let pattern;
   if (/\s/.test(string)) {
