@@ -1,5 +1,5 @@
 function wrapWord(string) {
-  let re = makeRegex(string);
+  let re = createRegex(string);
 
   let nodes = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
       acceptNode: function(node) {
