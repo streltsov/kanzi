@@ -1,22 +1,20 @@
 body {
   color: #0c0c0d;
-  font-family: Helvetica, sans-serif;
+  font-family: sans-serif;
 }
 
 h1 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: serif;
+  font-weight: 300;
   color: #45a1ff;
 }
 
 .panel {
   display: flex;
+  align-items: center;
 }
 
-.space {
-  flex-grow: 1;
-}
-
-input[type="text"] {
+#word-finder-input{
   background-color: #ffffff;
   color: #0c0c0d;
   border-radius: 2px;
@@ -27,18 +25,22 @@ input[type="text"] {
   border: 2px solid rgba(12, 12, 13, 0.2);
 }
 
-input[type="text"]::placeholder {
+#word-finder-input::placeholder {
   color: #737373;
   font-size: 0.833rem/1.4;
 }
 
-input[type="text"]:hover {
+#word-finder-input:hover {
   border-color: rgba(12, 12, 13, 0.3);
 }
 
-input[type="text"]:focus {
+#word-finder-input:focus {
   border-color: #0a84ff;
   box-shadow: 0 0 0 1px #0a84ff, 0 0 0 4px rgba(10, 132, 255, 0.3);
+}
+
+.space {
+  flex-grow: 1;
 }
 
 button {
@@ -74,36 +76,29 @@ input[type="file"] {
   display: none;
 }
 
-table {
+#dictionary-table {
   border-collapse: collapse;
   width: 100%;
 }
 
-table td,
-table th {
+#dictionary-table td,
+#dictionary-table th {
   border: 1px solid #ededf0;
   padding: 8px;
 }
 
-table tr:nth-child(even) {
+#dictionary-table tr:nth-child(even) {
   background-color: #f9f9fa;
 }
 
-table tr:hover {
+#dictionary-table tr:hover {
   background-color: #ededf0;
 }
 
-table th {
+#dictionary-table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
   background-color: #45a1ff;
   color: white;
-}
-
-table td:focus {
-  border-radius: 2px;
-  outline: 2px solid #0a84ff;
-  background-color: white;
-  box-shadow: 0 0 0 1px #0a84ff, 0 0 0 4px rgba(10, 132, 255, 0.3);
 }
