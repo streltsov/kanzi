@@ -43,7 +43,6 @@
     "js": [
       "content_scripts/tippy.js",
       "content_scripts/wrapWord.js",
-      "content_scripts/xregexp-all.js",
       "content_scripts/createRegex.js",
       "content_scripts/createModal.js",
       "content_scripts/createTooltip.js",
