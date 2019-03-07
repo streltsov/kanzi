@@ -4,8 +4,9 @@ body {
 }
 
 h1 {
-  font-family: serif;
-  font-weight: 300;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 40px;
   color: #45a1ff;
 }
 
@@ -43,6 +44,10 @@ h1 {
   flex-grow: 1;
 }
 
+.panel button {
+  margin-left: 8px;
+}
+
 button {
   color: #0c0c0d;
   background-color: rgba(12, 12, 13, 0.1);
@@ -53,7 +58,6 @@ button {
   font-size: 13px;
   font-weight: 400;
   border: none;
-  margin-left: 8px;
 }
 
 button:hover {

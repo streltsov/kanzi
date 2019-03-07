@@ -1,6 +1,8 @@
 browser.storage.local.get('dictionary').then((d) => {
-  let wordsInTotal = document.createTextNode(Object.keys(d.dictionary).length);
-  document.getElementsByClassName('words-in-total')[0].appendChild(wordsInTotal);
+
+  let wordsInTotalSpan = document.getElementsByClassName('words-in-total')[0]
+  let wordsInTotalSpanText = document.createTextNode(Object.keys(d.dictionary).length);
+  wordsInTotalSpan.appendChild(wordsInTotalSpanText);
 
   Object.keys(d.dictionary).sort().forEach(word => {
 
@@ -21,6 +23,33 @@ browser.storage.local.get('dictionary').then((d) => {
     let exampleColumnText = document.createTextNode(d.dictionary[word].example);
     exampleColumn.appendChild(exampleColumnText);
     row.appendChild(exampleColumn);
+
+    let actionButtonsColumn = document.createElement('td');
+    actionButtonsColumn.style.whiteSpace = 'nowrap';
+
+    let editButton = document.createElement('button');
+    let editButtonText = document.createTextNode('Edit');
+    editButton.appendChild(editButtonText);
+    actionButtonsColumn.appendChild(editButton);
+    editButton.onclick = () => createModal(word,
+      document.getElementById(word.replace(/\s/g, '_')).children[1].textContent,
+      document.getElementById(word.replace(/\s/g, '_')).children[2].textContent
+    );
+
+    let deleteButton = document.createElement('button');
+    let deleteButtonText = document.createTextNode('Delete');
+    deleteButton.style.marginLeft = '8px';
+    deleteButton.appendChild(deleteButtonText);
+    deleteButton.onclick = () => {
+      delete d.dictionary[word];
+      browser.storage.local.set(d);
+      let wordRowToDelete = document.getElementById(word.replace(/\s/g, '_'));
+      wordRowToDelete.parentNode.removeChild(wordRowToDelete);
+      wordsInTotalSpan.textContent = Object.keys(d.dictionary).length;
+    }
+
+    actionButtonsColumn.appendChild(deleteButton);
+    row.appendChild(actionButtonsColumn);
 
     document.getElementsByTagName('table')[0].appendChild(row);
   });

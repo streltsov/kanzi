@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Kanzi Dictionary</title>
+  <link rel="stylesheet" href="fonts/fonts.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="createModal.css">
 </head>
 
 <body>
@@ -12,7 +14,7 @@
 
   <div class="panel">
     <p>Words in total: <span class="words-in-total"></span></p>
-    <input type="text" id="word-finder-input" placeholder="Search for word">
+    <input type="text" id="word-finder-input" placeholder="Search for a word">
     <span class="space"></span>
     <button class="export-button">Export JSON</button>
     <button class="import-button">Import JSON</button>
@@ -25,6 +27,7 @@
       <th>Word</th>
       <th>Meaning</th>
       <th>Example</th>
+      <th>Actions</th>
     </tr>
   </table>
 
@@ -33,6 +36,7 @@
   <script src="export.js"></script>
   <script src="deleteAll.js"></script>
   <script src="wordFinder.js"></script>
+  <script src="createModal.js"></script>
 </body>
 
 </html>
