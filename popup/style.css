@@ -1,3 +1,10 @@
+hr {
+  border: 0;
+  height: 1px;
+  border-top: 1px solid #d7d7db;
+  margin: 0;
+}
+
 .popup-list {
   color: #0c0c0d;
   list-style-type: none;
