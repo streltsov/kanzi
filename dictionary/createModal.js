@@ -60,39 +60,39 @@ function createModal(word, meaning, example) {
     example = exampleField.value.trim();
 
     browser.storage.local.get('dictionary').then(d => {
-        d.dictionary[word] = {
-          meaning: meaning,
-          example: example
-        };
-        browser.storage.local.set(d);
+      d.dictionary[word] = {
+        meaning: meaning,
+        example: example
+      };
+      browser.storage.local.set(d);
 
-        document.getElementById(word.replace(/\s/g, '_')).children[1].textContent = meaning;
-        document.getElementById(word.replace(/\s/g, '_')).children[2].textContent = example;
-        modal.remove();
+      document.getElementById(word.replace(/\s/g, '_')).children[1].textContent = meaning;
+      document.getElementById(word.replace(/\s/g, '_')).children[2].textContent = example;
+      modal.remove();
 
-      }
-    };
+    });
+  };
 
-    let addButtonText = document.createTextNode('Done');
-    addButton.appendChild(addButtonText);
+  let addButtonText = document.createTextNode('Done');
+  addButton.appendChild(addButtonText);
 
-    modalContent.appendChild(wordField);
-    modalContent.appendChild(meaningLabel);
-    modalContent.appendChild(meaningField);
-    modalContent.appendChild(exampleLabel);
-    modalContent.appendChild(exampleField);
-    modalContent.appendChild(addButton);
-    modalContent.appendChild(closeButton);
-    modal.appendChild(modalContent);
+  modalContent.appendChild(wordField);
+  modalContent.appendChild(meaningLabel);
+  modalContent.appendChild(meaningField);
+  modalContent.appendChild(exampleLabel);
+  modalContent.appendChild(exampleField);
+  modalContent.appendChild(addButton);
+  modalContent.appendChild(closeButton);
+  modal.appendChild(modalContent);
 
-    document.body.appendChild(modal);
+  document.body.appendChild(modal);
 
-    meaningField.focus();
+  meaningField.focus();
+}
+
+window.addEventListener("keydown", function(evt) {
+  if (evt.keyCode === 27 && document.querySelector(".kz-overlay")) {
+    evt.preventDefault();
+    document.querySelector(".kz-overlay").remove();
   }
-
-  window.addEventListener("keydown", function(evt) {
-    if (evt.keyCode === 27 && document.querySelector(".kz-overlay")) {
-      evt.preventDefault();
-      document.querySelector(".kz-overlay").remove();
-    }
-  });
+});
