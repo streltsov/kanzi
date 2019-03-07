@@ -4,7 +4,7 @@ wordFinderInput.focus();
 wordFinderInput.addEventListener('keyup', function() {
   let input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("word-finder-input");
-  filter = new RegExp('\\b' + input.value, 'gi');
+  filter = new RegExp('\\b' + input.value, 'i');
   table = document.getElementById("dictionary-table");
   tr = table.getElementsByTagName("tr");
 
