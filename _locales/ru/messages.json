@@ -1,0 +1,116 @@
+{
+  "extensionDescription": {
+    "message": "Пополняйте словарный запас пока пользуютесь интренетом",
+    "description": "Extension description"
+  },
+
+  "modalMeaningLabel": {
+    "message": "Значение",
+    "description": "Modal meaning label"
+  },
+
+  "modalMeaningPlaceholder": {
+    "message": "Введите значение",
+    "description": "Modal meaning placeholder"
+  },
+
+  "modalExampleLabel": {
+    "message": "Пример",
+    "description": "Modal example label"
+  },
+
+  "modalExamplePlaceholder": {
+    "message": "Введите пример",
+    "description": "Modal example placeholder"
+  },
+
+  "modalDone": {
+    "message": "Готово",
+    "description": "Done button"
+  },
+
+  "tooltipForExampleText": {
+    "message": "Например",
+    "description": "Text before example"
+  },
+
+  "popupAddAWord": {
+    "message": "Добавить слово",
+    "description": "Add a word menu button"
+  },
+
+  "popupDictionary": {
+    "message": "Словарь",
+    "description": "Dictionary menu button"
+  },
+
+  "popupPreferences": {
+    "message": "Настройки",
+    "description": "Preferences button"
+  },
+
+  "optionsTitle": {
+    "message": "Настройки",
+    "description": "Options page h1 title"
+  },
+
+  "optionsTooltipFontSizeText": {
+    "message": "Размер шрифта подсказки",
+    "description": "Tooltip font size text"
+  },
+
+  "dictionaryTitle": {
+    "message": "Словарь",
+    "description": "Dictionary page title"
+  },
+
+  "wordCounter": {
+    "message": "Всего слов",
+    "description": "Word counter text"
+  },
+
+  "wordFinderPlaceholderText": {
+    "message": "Поиск слов",
+    "description": "Word finder input placeholder"
+  },
+
+  "dictionaryExportButton": {
+    "message": "Экспорт JSON"
+  },
+
+  "dictionaryImportButton": {
+    "message": "Импорт JSON"
+  },
+
+  "dictionaryDeleteAllButton": {
+    "message": "Удалить все"
+  },
+
+  "dictionaryDeleteAllConfirmation": {
+    "message": "Это действие безвозвратно удалит все ваши слова из словаря, продолжить?"
+  },
+
+  "dictionaryTableWord": {
+    "message": "Слово"
+  },
+
+  "dictionaryTableMeaning": {
+    "message": "Значение"
+  },
+
+  "dictionaryTableExample": {
+    "message": "Пример"
+  },
+
+  "dictionaryTableActions": {
+    "message": "Действия"
+  },
+
+  "dictionaryEditButton": {
+    "message": "Править"
+  },
+
+  "dictionaryDeleteButton": {
+    "message": "Удалить"
+  }
+}

@@ -13,6 +13,7 @@ h1 {
 .panel {
   display: flex;
   align-items: center;
+  padding: 8px 0;
 }
 
 #word-finder-input{

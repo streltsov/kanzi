@@ -17,11 +17,11 @@ function createModal(word, meaning, example) {
   let meaningLabel = document.createElement('label');
   meaningLabel.className = 'kz-meaning-label';
   meaningLabel.setAttribute('for', 'kz-meaning-field');
-  let meaningLabelText = document.createTextNode('Meaning');
+  let meaningLabelText = document.createTextNode(browser.i18n.getMessage('modalMeaningLabel'));
   meaningLabel.appendChild(meaningLabelText);
 
   let meaningField = document.createElement('textarea');
-  meaningField.placeholder = 'Enter a meaning';
+  meaningField.placeholder = browser.i18n.getMessage('modalMeaningPlaceholder');
   meaningField.maxLength = '5000';
   meaningField.className = 'kz-meaning-field';
   meaningField.id = 'kz-meaning-field';
@@ -30,11 +30,11 @@ function createModal(word, meaning, example) {
   let exampleLabel = document.createElement('label');
   exampleLabel.className = 'kz-example-label';
   exampleLabel.setAttribute('for', 'kz-example-field');
-  let exampleLabelText = document.createTextNode('Example');
+  let exampleLabelText = document.createTextNode(browser.i18n.getMessage('modalExampleLabel'));
   exampleLabel.appendChild(exampleLabelText);
 
   let exampleField = document.createElement('textarea');
-  exampleField.placeholder = 'Enter an example';
+  exampleField.placeholder = browser.i18n.getMessage('modalExamplePlaceholder');
   exampleField.maxLength = '5000';
   exampleField.className = 'kz-example-field';
   exampleField.id = 'kz-example-field';
@@ -84,7 +84,7 @@ function createModal(word, meaning, example) {
     }
   };
 
-  let addButtonText = document.createTextNode('Done');
+  let addButtonText = document.createTextNode(browser.i18n.getMessage('modalDone'));
   addButton.appendChild(addButtonText);
   modalContent.appendChild(wordField);
   modalContent.appendChild(meaningLabel);

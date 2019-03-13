@@ -63,7 +63,7 @@ function createTooltip(word, meaning, example) {
         example = example.trim();
         let exampleSpan = document.createElement('span');
         exampleSpan.className = 'kz-tooltip__example-span';
-        let exampleSpanText = document.createTextNode('For example: «' + example + '»');
+        let exampleSpanText = document.createTextNode(browser.i18n.getMessage('tooltipForExampleText') + ': «' + example + '»');
         exampleSpan.appendChild(exampleSpanText);
         tooltip.appendChild(exampleSpan);
       }
