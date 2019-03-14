@@ -4,9 +4,8 @@ const getText = browser.i18n.getMessage;
 // Head Title and H1 Title
 const H1 = document.createElement('h1');
 const headTitle = document.head.getElementsByTagName('title')[0];
-const titleAndH1Text = document.createTextNode('Kanzi ' + getText('dictionaryTitle'));
-H1.appendChild(titleAndH1Text);
-headTitle.appendChild(titleAndH1Text);
+H1.textContent = 'Kanzi ' + getText('dictionaryTitle');
+headTitle.textContent = 'Kanzi ' + getText('dictionaryTitle');
 document.body.appendChild(H1);
 
 // Panel
