@@ -112,5 +112,9 @@
 
   "dictionaryDeleteButton": {
     "message": "Удалить"
+  },
+
+  "gamesMeaningWords": {
+    "message": "Значение - слово"
   }
 }

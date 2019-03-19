@@ -6,6 +6,7 @@ hr {
 }
 
 .popup-list {
+  background-color: #ffffff;
   color: #0c0c0d;
   list-style-type: none;
   margin: 0;
@@ -25,4 +26,13 @@ hr {
 
 svg {
   margin: 0 8px;
+}
+
+.hide {
+  display: none;
+}
+
+.games-list {
+  position: absolute;
+  height: 100%
 }
