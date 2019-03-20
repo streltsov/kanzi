@@ -15,54 +15,56 @@ hr {
 }
 
 .popup-list li {
+  display: flex;
+  align-items: center;
   height: 24px;
   padding: 0 4px;
-  display: flex;
-  align-items: center
+}
+
+.popup-list li:hover {
+  background-color: #ececec;
+}
+
+.popup-list svg {
+  margin: 0 8px;
 }
 
 .popup-list span {
   flex-grow: 1;
 }
 
-.popup-list li:hover {
-  background-color: #ECECEC;
-}
-
-svg {
-  margin: 0 8px;
-}
-
 .hide {
   display: none;
-}
-
-.games-list-div {
-  position: absolute;
-  height: 100%;
-  background-color: #ffffff;
-}
-
-.title-list svg {
-  margin: 0;
-  height: 32px;
-  width: 32px;
-  padding: 8px;
-}
-.title-list svg:hover {
-  background-color: #ececec;
 }
 
 .title-list li {
   display: flex;
   height: 32px
 }
+
 .title-list li:hover {
   background-color: #ffffff;
+}
+
+.title-list .back-icon {
+  height: 32px;
+  width: 32px;
+  padding: 8px;
+  margin: 0;
+}
+
+.title-list .back-icon:hover {
+  background-color: #ececec;
 }
 
 .title-list strong {
   flex-grow: 1;
   text-align: center;
   padding-right: 32px;
+}
+
+.games-list-div {
+  position: absolute;
+  height: 100%;
+  background-color: #ffffff;
 }

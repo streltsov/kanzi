@@ -29,10 +29,8 @@ dictionaryLi.addEventListener("click", function() {
 const gamesLi = document.querySelector('.games');
 const gamesLiSpanText = document.querySelector('.games span');
 gamesLiSpanText.textContent = browser.i18n.getMessage('popupGames');
-
 const gamesListDiv = document.querySelector(".games-list-div");
-const back = document.getElementsByClassName("back")[0];
-
+const backIcon = document.querySelector('.back-icon');
 const meaningWordsLi = document.querySelector('.meaning-words');
 const meaningWordsLiSpanText = document.querySelector('.meaning-words span');
 meaningWordsLiSpanText.textContent = browser.i18n.getMessage('gamesMeaningWords');
@@ -41,7 +39,7 @@ gamesLi.addEventListener("click", function() {
   gamesListDiv.classList.toggle('hide');
 });
 
-back.addEventListener("click", function() {
+backIcon.addEventListener("click", function() {
   gamesListDiv.classList.toggle('hide');
 });
 
