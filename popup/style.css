@@ -21,6 +21,10 @@ hr {
   align-items: center
 }
 
+.popup-list span {
+  flex-grow: 1;
+}
+
 .popup-list li:hover {
   background-color: #ECECEC;
 }
@@ -33,7 +37,7 @@ svg {
   display: none;
 }
 
-.games-list {
+.games-list-div {
   position: absolute;
   height: 100%;
   background-color: #ffffff;
