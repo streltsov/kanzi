@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  background-image: url('http://bushmasterbook.com/wp-content/uploads/2018/03/white-design-background-background-design-trends-white-floral-design-background.jpg');
+  background-image: url('https://static.wixstatic.com/media/31b44a_9f08853e3fd64117875217dc85553e51.png');
+  background-size: cover;
+  font-family: 'Helvetica', sans-serif;
+  color: #333333;
+
+  --nav-height: 68px;
+}
+
+h1,
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+.nav {
+  display: flex;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background: white;
+  opacity: 0.9;
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding-left: 64px;
+}
+
+.brand__logo {
+  height: 40px;
+  padding-right: 8px;
+}
+
+button {
+  background-color: #0060df;
+  border: none;
+  height: 32px;
+  padding: 0 48px;
+  border-radius: 16px;
+}
+button:hover {
+  background-color: #003eaa;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  margin-top: var(--nav-height);
+}
+
+.description {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 12px;
+  border-radius: 9px;
+}
+.description p {
+  max-width: 45ch;
+}
+
+.description button {
+  float: right;
+}
+
+video {
+  border-radius: 9px;
+  opacity: 0.85;
+}
+video:hover {
+  opacity: 1;
+}
