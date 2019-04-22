@@ -117,10 +117,17 @@ const createModal = (word, meaning, example) => {
 
   const script = document.createElement('script');
   script.textContent = `
-  window.addEventListener("keydown", function(evt) {
-    if (evt.keyCode === 27 && document.querySelector(".shadow-dom-root-modal")) {
-      evt.preventDefault();
+  window.addEventListener("keydown", e => {
+    if (e.keyCode === 27 && !!document.querySelector('.shadow-dom-root-modal')) {
+      e.preventDefault();
       document.querySelector(".shadow-dom-root-modal").remove();
+    }
+  });
+
+  window.addEventListener("keydown", e => {
+    if (e.keyCode === 13 && !!document.querySelector('.shadow-dom-root-modal')) {
+      e.preventDefault();
+      document.querySelector('.shadow-dom-root-modal').shadowRoot.querySelector('.kz-add-button').click();
     }
   });`;
 
