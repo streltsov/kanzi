@@ -1,10 +1,12 @@
 body {
-  margin: 0;
-  background-image: url('http://bushmasterbook.com/wp-content/uploads/2018/03/white-design-background-background-design-trends-white-floral-design-background.jpg');
-  background-image: url('https://static.wixstatic.com/media/31b44a_9f08853e3fd64117875217dc85553e51.png');
-  background-size: cover;
   font-family: 'Helvetica', sans-serif;
   color: #333333;
+  margin: 0;
+  padding: 12px;
+
+  background-image: url('http://bushmasterbook.com/wp-content/uploads/2018/03/white-design-background-background-design-trends-white-floral-design-background.jpg');
+  background-image: url('https://png.pngtree.com/thumb_back/fw800/back_pic/02/66/09/855789ba5a28a3f.jpg');
+  background-size: cover;
 
   --nav-height: 68px;
 }
@@ -16,6 +18,69 @@ h2 {
 
 h1 {
   font-size: 40px;
+}
+
+.brand {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: 32px;
+  margin-bottom: -24px;
+}
+
+.brand__logo {
+  height: 32px;
+  padding-right: 4px;
+  margin-bottom: 10px;
+}
+
+.brand__name {
+  margin: 0 9px 0 0;
+}
+
+button {
+  background-color: #0060df;
+  border: none;
+  height: 32px;
+  padding: 0 48px;
+  border-radius: 16px;
+}
+button:hover {
+  background-color: #003eaa;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 350px;
+  max-width: 33%;
+  border-radius: 9px;
+}
+
+.description h2,
+.description p {
+  text-align: center;
+}
+
+.description button {
+}
+
+video {
+  margin-top: 12px;
+  max-width: 100%;
+  border-radius: 9px;
+  opacity: 0.85;
+}
+video:hover {
+  opacity: 1;
 }
 
 .nav {
@@ -33,54 +98,26 @@ h1 {
   box-sizing: border-box;
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.1);
-  padding-left: 64px;
-}
+@media only screen and (min-width: 900px) {
+  .hero {
+    margin: 48px 12px 0 12px;
+    flex-direction: row;
+    justify-content: space-around;
+  }
 
-.brand__logo {
-  height: 40px;
-  padding-right: 8px;
-}
+  .description {
+  }
 
-button {
-  background-color: #0060df;
-  border: none;
-  height: 32px;
-  padding: 0 48px;
-  border-radius: 16px;
-}
-button:hover {
-  background-color: #003eaa;
-}
+  video {
+    max-width: 50%;
+    flex-grow: 1;
+  }
 
-.hero {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-
-  margin-top: var(--nav-height);
-}
-
-.description {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 12px;
-  border-radius: 9px;
-}
-.description p {
-  max-width: 45ch;
-}
-
-.description button {
-  float: right;
-}
-
-video {
-  border-radius: 9px;
-  opacity: 0.85;
-}
-video:hover {
-  opacity: 1;
+  .brand {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 0;
+    margin-bottom: -24px;
+  }
 }
