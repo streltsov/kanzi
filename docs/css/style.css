@@ -2,75 +2,51 @@ body {
   font-family: 'Helvetica', sans-serif;
   color: #333333;
   margin: 0;
-  padding: 12px;
-
-  background-image: url('http://bushmasterbook.com/wp-content/uploads/2018/03/white-design-background-background-design-trends-white-floral-design-background.jpg');
+  padding: 24px;
   background-image: url('https://png.pngtree.com/thumb_back/fw800/back_pic/02/66/09/855789ba5a28a3f.jpg');
   background-size: cover;
-
-  --nav-height: 68px;
-}
-
-h1,
-h2 {
-  font-family: 'Cormorant Garamond', serif;
-}
-
-h1 {
-  font-size: 40px;
 }
 
 .brand {
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  margin-top: 32px;
-  margin-bottom: -24px;
+  width: 100%;
 }
 
 .brand__logo {
+  align-self: center;
   height: 32px;
-  padding-right: 4px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .brand__name {
-  margin: 0 9px 0 0;
-}
-
-button {
-  background-color: #0060df;
-  border: none;
-  height: 32px;
-  padding: 0 48px;
-  border-radius: 16px;
-}
-button:hover {
-  background-color: #003eaa;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  margin-bottom: 30px;
+  display: inline-block;
 }
 
 .hero {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
 }
 
 .description {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 350px;
-  max-width: 33%;
-  border-radius: 9px;
 }
 
-.description h2,
-.description p {
-  text-align: center;
+.description__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
 }
 
-.description button {
+.description__text {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.description__button {
+  width: 100%;
 }
 
 video {
@@ -81,6 +57,18 @@ video {
 }
 video:hover {
   opacity: 1;
+}
+
+.add-button {
+  background-color: #0060df;
+  border: none;
+  height: 32px;
+  padding: 0 48px;
+  border-radius: 16px;
+}
+
+.add-button:hover {
+  background-color: #003eaa;
 }
 
 .nav {
