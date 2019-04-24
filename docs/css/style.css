@@ -47,6 +47,13 @@ body {
 
 .description__button {
   width: 100%;
+  display: block;
+  box-sizing: border-box;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  line-height: 40px;
+  height: 40px;	
 }
 
 video {
