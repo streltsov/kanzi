@@ -3,8 +3,19 @@ body {
   color: #333333;
   margin: 0;
   padding: 24px;
-  background-image: url('https://png.pngtree.com/thumb_back/fw800/back_pic/02/66/09/855789ba5a28a3f.jpg');
+  background-image: url('../images/background.jpg');
   background-size: cover;
+}
+
+.not-firefox {
+  display: block;
+  text-align: center;
+  background-color: #d7d7db;
+  border: none;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 48px;
+  border-radius: 16px;
 }
 
 .brand {
@@ -25,13 +36,14 @@ body {
   display: inline-block;
 }
 
-.hero {
+.section {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .description {
+  margin-bottom: 24px;
 }
 
 .description__title {
@@ -53,7 +65,7 @@ body {
   color: white;
   text-decoration: none;
   line-height: 40px;
-  height: 40px;	
+  height: 40px;
 }
 
 video {
