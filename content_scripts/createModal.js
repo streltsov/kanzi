@@ -1,7 +1,5 @@
-const createModal = (word, meaning, example) => {
+const createModal = (word, meaning = '', example = '') => {
   word = word.trim().toLowerCase();
-  meaning = meaning || '';
-  example = example || '';
 
   const modal = document.createElement('div');
   modal.className = 'kz-overlay';
