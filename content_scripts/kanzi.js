@@ -30,7 +30,7 @@ const unwrapWord = word => {
     });
 };
 
-const addWord = (word, meaning, example) =>
+const addWordToDictionary = (word, meaning, example) =>
   browser.storage.local.get('dictionary').then(d => {
     d.dictionary[word] = {
       meaning: meaning,

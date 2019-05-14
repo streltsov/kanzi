@@ -67,26 +67,24 @@ const createModal = (word, meaning = '', example = '') => {
 
   const addButton = document.createElement('button');
   addButton.className = 'kz-add-button';
-  addButton.onclick = function() {
-    word = wordField.value.trim().toLowerCase();
-    meaning = meaningField.value.trim();
-    example = exampleField.value.trim();
-
-    if (wordField.value) {
-      unwrapWord(word);
-      addWord(word, meaning, example);
-      modal.remove();
-      wrapWord(word);
-      createTooltip(word, meaning, example);
-    } else {
-      alert("Word field couldn't be empty!");
-    }
-  };
 
   const addButtonText = document.createTextNode(
     browser.i18n.getMessage('modalDone'),
   );
   addButton.appendChild(addButtonText);
+  addButton.addEventListener('click', () => {
+    if (wordField.value) {
+      word = wordField.value.trim().toLowerCase();
+      meaning = meaningField.value.trim();
+      example = exampleField.value.trim();
+      unwrapWord(word);
+      addWordToDictionary(word, meaning, example);
+      modal.remove();
+      wrapWord(word);
+      createTooltip(word, meaning, example);
+    }
+  });
+
   modalContent.appendChild(wordField);
   modalContent.appendChild(meaningLabel);
   modalContent.appendChild(meaningField);
