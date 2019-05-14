@@ -29,3 +29,12 @@ const unwrapWord = word => {
       );
     });
 };
+
+const addWord = (word, meaning, example) =>
+  browser.storage.local.get('dictionary').then(d => {
+    d.dictionary[word] = {
+      meaning: meaning,
+      example: example,
+    };
+    browser.storage.local.set(d);
+  });

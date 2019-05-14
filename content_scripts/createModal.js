@@ -74,15 +74,7 @@ const createModal = (word, meaning = '', example = '') => {
 
     if (wordField.value) {
       unwrapWord(word);
-
-      browser.storage.local.get('dictionary').then(d => {
-        d.dictionary[word] = {
-          meaning: meaning,
-          example: example,
-        };
-        browser.storage.local.set(d);
-      });
-
+      addWord(word, meaning, example);
       modal.remove();
       wrapWord(word);
       createTooltip(word, meaning, example);
