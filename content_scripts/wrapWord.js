@@ -1,13 +1,11 @@
 const wrapWord = string => {
-  const re = createRegex(string);
-
   const nodes = document.createTreeWalker(
     document.body,
     NodeFilter.SHOW_TEXT,
     {
       acceptNode: function(node) {
         if (
-          re.test(node.textContent) &&
+          createRegex(string).test(node.textContent) &&
           !/^(STYLE|SCRIPT)$/i.test(node.parentNode.nodeName)
         )
           return NodeFilter.FILTER_ACCEPT;
