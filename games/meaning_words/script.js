@@ -1,26 +1,37 @@
-browser.storage.local.get().then(storage => {
+browser.storage.local
+  .get()
+  .then(storage => storage.dictionary)
+  .then(dict => startGame(dict));
 
-  const used = [];
+const getRandomProperty = obj => {
+  const keys = Object.keys(obj);
+  const random = Math.floor(Math.random() * keys.length);
+  return {word: keys[random], ...obj[keys[random]]};
+};
 
-  const choices = document.querySelectorAll('label');
-  const question = document.querySelector('.question');
+const startGame = dict => {
+  const answers = Array.from({length: 4}, el => (el = getRandomProperty(dict)));
+  answers.forEach((answer, i) => {
+    document.getElementsByClassName('answer')[i].textContent = answer.word;
+  });
+};
 
-  function randomItem(array) {
-    return array[Math.floor(Math.random() * array.length)]
-  }
+const recorder = (state = {}, action) =>
+  action.type === 'RECORD'
+    ? {...state, usedWords: [...state.usedWords || undefined, action.word]}
+    : state;
 
-  function load(dict) {
-    choices.forEach(el => el.textContent = randomItem(Object.keys(dict)))
-    question.textContent = dict[randomItem(choices).textContent].meaning;
-  }
+const store = Redux.createStore(recorder);
 
-  function check() {
-    const choice = document.querySelector('.choice:checked').labels[0].textContent;
-    storage.dictionary[choice].meaning == question.textContent ? console.log("You're right!") : console.log('Try again!')
-  }
+document
+  .querySelector('.get-state')
+  .addEventListener('click', () => console.log(store.getState()));
+document
+  .querySelector('.increment')
+  .addEventListener('click', () => store.dispatch({type: 'INCREMENT'}));
 
-  choices.forEach(choice => choice.control.addEventListener('click', check));
-
-  load(storage.dictionary)
-
+document.querySelectorAll('.answer').forEach(answer => {
+  answer.addEventListener('click', event =>
+    store.dispatch({type: 'RECORD', word: event.target.textContent}),
+  );
 });
