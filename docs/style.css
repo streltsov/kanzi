@@ -14,8 +14,13 @@ body {
 .header p {
   font-family: 'Lato', sans-serif;
   font-size: 20px;
-  margin-top: 8px;
+  margin: 8px 0 8px;
   color: #737373;
+}
+
+.header a {
+  color: #737373;
+  text-decoration: none;
 }
 
 .not-firefox {
