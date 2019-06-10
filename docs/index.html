@@ -3,8 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Kanzi — vocabulary builder</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>Kanzi — Vocabulary Builder</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300&display=swap"
+      rel="stylesheet"
+    />
     <link
       href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:700"
       rel="stylesheet"
@@ -12,12 +16,12 @@
   </head>
 
   <body>
-    <div class="brand">
-      <img class="brand__logo" src="images/logo.png" alt="kanzi logo" />
-      <h1 class="brand__name">Kanzi</h1>
-    </div>
+    <header class="header">
+      <h1>Kanzi</h1>
+      <p>Firefox extension which goal is to help you improve your vocabulary</p>
+    </header>
 
-    <header class="section">
+    <section class="section">
       <div class="description">
         <h2 class="description__title">
           Build vocabulary<br />
@@ -25,9 +29,8 @@
         </h2>
         <p class="description__text">
           Whenever you encounter a word on the internet that you don't know yet,
-          add it to Kanzi!<br />
-          The next time you see the word, you can hover over it and see its
-          meaning right away!
+          add it to Kanzi! The next time you see the word, you can hover over it
+          and see its meaning right away!
         </p>
         <a
           class="description__button add-button"
@@ -36,10 +39,27 @@
         >
       </div>
 
-      <video autoplay loop muted>
+      <video class="video" autoplay loop muted>
         <source src="video/main.mp4" type="video/mp4" />
       </video>
-    </header>
-    <script src="script/script.js"></script>
+    </section>
+
+    <section class="section dictionary">
+      <div class="description">
+        <h2 class="description__title">
+          Manage your words in handy dictionary
+        </h2>
+        <p class="description__text">
+          Kanzi includes a convenient dictionary, in which you can look up for
+          words you've added, edit or delete ones you don't need anymore.
+        </p>
+      </div>
+
+      <video class="video" autoplay loop muted>
+        <source src="video/vocabulary_demo.mp4" type="video/mp4" />
+      </video>
+    </section>
+
+    <script src="script.js"></script>
   </body>
 </html>
