@@ -33,27 +33,27 @@ var App = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.state = { dict: null }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
-
-  _createClass(App, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var _this2 = this;
-
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.state = { words: null }, _this.sort = function (obj) {
+      return Object.keys(obj).sort(function (a, b) {
+        return obj[a].status - obj[b].status;
+      }).reverse();
+    }, _this.componentDidMount = function () {
       browser.storage.local.get().then(function (storage) {
         return storage.dictionary;
       }).then(function (dictionary) {
-        return _this2.setState({ dict: dictionary });
+        _this.setState({ words: _this.sort(dictionary) });
+        console.table(_this.state.words);
       });
-    }
-  }, {
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(App, [{
     key: 'render',
     value: function render() {
-      return this.state.dict ? React.createElement(Answers, { answers: ['shit', 'fuck', 'cunt', 'hell'] }) : React.createElement(
+      return this.state.words ? React.createElement(Answers, { answers: this.state.words.slice(0, 4) }) : React.createElement(
         'div',
         null,
-        'Loading'
+        'Loading...'
       );
     }
   }]);
