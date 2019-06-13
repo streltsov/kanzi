@@ -35,7 +35,7 @@ var App = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.state = { words: null }, _this.sort = function (obj) {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.state = { words: null, dict: null }, _this.sort = function (obj) {
       return Object.keys(obj).sort(function (a, b) {
         return obj[a].status - obj[b].status;
       }).reverse();
@@ -44,7 +44,7 @@ var App = function (_React$Component) {
         return storage.dictionary;
       }).then(function (dictionary) {
         _this.setState({ words: _this.sort(dictionary) });
-        console.table(_this.state.words);
+        _this.setState({ dict: dictionary });
       });
     }, _this.getAnswers = function (array) {
       return [array[0]].concat(_toConsumableArray(Array.from({ length: 3 }, function () {
@@ -56,7 +56,16 @@ var App = function (_React$Component) {
   _createClass(App, [{
     key: 'render',
     value: function render() {
-      return this.state.words ? React.createElement(Answers, { answers: this.getAnswers(this.state.words) }) : React.createElement(
+      return this.state.words && this.state.dict ? React.createElement(
+        'div',
+        null,
+        React.createElement(
+          'h3',
+          null,
+          this.state.dict[this.state.words[0]].meaning
+        ),
+        React.createElement(Answers, { answers: this.getAnswers(this.state.words) })
+      ) : React.createElement(
         'div',
         null,
         'Loading...'
