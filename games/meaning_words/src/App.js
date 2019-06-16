@@ -1,24 +1,10 @@
-const Answer = props => <button>{props.answer}</button>;
-const Answers = props =>
-  props.answers.map(answer => <Answer answer={answer} />);
-
 class App extends React.Component {
-  state = {words: null, dict: null};
+  state = {question: null, correctAnswer: null};
 
   sort = obj =>
     Object.keys(obj)
       .sort((a, b) => obj[a].status - obj[b].status)
       .reverse();
-
-  componentDidMount = () => {
-    browser.storage.local
-      .get()
-      .then(storage => storage.dictionary)
-      .then(dictionary => {
-        this.setState({words: this.sort(dictionary)});
-        this.setState({dict: dictionary});
-      });
-  };
 
   getAnswers = array => [
     array[0],
@@ -28,12 +14,22 @@ class App extends React.Component {
     ),
   ];
 
+  componentDidMount = () => {
+    browser.storage.local
+      .get()
+      .then(storage => storage.dictionary)
+      .then(dictionary => {
+        this.setState({correctAnswer: this.sort(dictionary)[0]});
+        this.setState({question: dictionary[this.state.correctAnswer].meaning});
+      });
+  };
+
   render() {
-    return this.state.words && this.state.dict ? (
-      <div>
-        <h3>{this.state.dict[this.state.words[0]].meaning}</h3>
-        <Answers answers={this.getAnswers(this.state.words)} />
-      </div>
+    return this.state.correctAnswer ? (
+      <Field
+        question={this.state.question}
+        answers={[this.state.correctAnswer]}
+      />
     ) : (
       <div>Loading...</div>
     );

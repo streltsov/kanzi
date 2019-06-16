@@ -8,19 +8,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Answer = function Answer(props) {
-  return React.createElement(
-    'button',
-    null,
-    props.answer
-  );
-};
-var Answers = function Answers(props) {
-  return props.answers.map(function (answer) {
-    return React.createElement(Answer, { answer: answer });
-  });
-};
-
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
 
@@ -35,37 +22,31 @@ var App = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.state = { words: null, dict: null }, _this.sort = function (obj) {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.state = { question: null, correctAnswer: null }, _this.sort = function (obj) {
       return Object.keys(obj).sort(function (a, b) {
         return obj[a].status - obj[b].status;
       }).reverse();
-    }, _this.componentDidMount = function () {
-      browser.storage.local.get().then(function (storage) {
-        return storage.dictionary;
-      }).then(function (dictionary) {
-        _this.setState({ words: _this.sort(dictionary) });
-        _this.setState({ dict: dictionary });
-      });
     }, _this.getAnswers = function (array) {
       return [array[0]].concat(_toConsumableArray(Array.from({ length: 3 }, function () {
         return array[Math.floor(Math.random() * array.length)];
       })));
+    }, _this.componentDidMount = function () {
+      browser.storage.local.get().then(function (storage) {
+        return storage.dictionary;
+      }).then(function (dictionary) {
+        _this.setState({ correctAnswer: _this.sort(dictionary)[0] });
+        _this.setState({ question: dictionary[_this.state.correctAnswer].meaning });
+      });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(App, [{
     key: 'render',
     value: function render() {
-      return this.state.words && this.state.dict ? React.createElement(
-        'div',
-        null,
-        React.createElement(
-          'h3',
-          null,
-          this.state.dict[this.state.words[0]].meaning
-        ),
-        React.createElement(Answers, { answers: this.getAnswers(this.state.words) })
-      ) : React.createElement(
+      return this.state.correctAnswer ? React.createElement(Field, {
+        question: this.state.question,
+        answers: [this.state.correctAnswer]
+      }) : React.createElement(
         'div',
         null,
         'Loading...'
