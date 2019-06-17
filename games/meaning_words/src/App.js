@@ -26,10 +26,11 @@ class App extends React.Component {
       });
   };
 
-  onClick = event =>
+  onClick = event => {
     this.changeWordStatus(
       event.target.textContent === this.state.correctAnswer ? 1 : -1,
     );
+  };
 
   changeWordStatus = number => {
     const correctAnswer = this.state.dict[this.state.correctAnswer];

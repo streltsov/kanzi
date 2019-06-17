@@ -41,7 +41,7 @@ var App = function (_React$Component) {
         _this.setState({ dict: dictionary });
       });
     }, _this.onClick = function (event) {
-      return _this.changeWordStatus(event.target.textContent === _this.state.correctAnswer ? 1 : -1);
+      _this.changeWordStatus(event.target.textContent === _this.state.correctAnswer ? 1 : -1);
     }, _this.changeWordStatus = function (number) {
       var correctAnswer = _this.state.dict[_this.state.correctAnswer];
       _this.setState({
