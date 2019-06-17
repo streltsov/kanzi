@@ -31,22 +31,23 @@ class App extends React.Component {
       event.target.textContent === this.state.correctAnswer ? 1 : -1,
     );
 
-  changeWordStatus = number =>
+  changeWordStatus = number => {
+    const correctAnswer = this.state.dict[this.state.correctAnswer];
     this.setState({
       dict: {
         ...this.state.dict,
         [this.state.correctAnswer]: {
-          ...this.state.dict[this.state.correctAnswer],
+          ...correctAnswer,
           status:
-            this.state.dict[this.state.correctAnswer].status > 0 && number < 0
+            correctAnswer.status > 0 && number < 0
               ? 0
-              : this.state.dict[this.state.correctAnswer].status < 0 &&
-                number > 0
+              : correctAnswer.status < 0 && number > 0
               ? 1
-              : this.state.dict[this.state.correctAnswer].status + number,
+              : correctAnswer.status + number,
         },
       },
     });
+  };
 
   render() {
     return this.state.dict ? (

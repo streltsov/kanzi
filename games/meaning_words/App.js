@@ -43,9 +43,10 @@ var App = function (_React$Component) {
     }, _this.onClick = function (event) {
       return _this.changeWordStatus(event.target.textContent === _this.state.correctAnswer ? 1 : -1);
     }, _this.changeWordStatus = function (number) {
-      return _this.setState({
-        dict: Object.assign({}, _this.state.dict, _defineProperty({}, _this.state.correctAnswer, Object.assign({}, _this.state.dict[_this.state.correctAnswer], {
-          status: _this.state.dict[_this.state.correctAnswer].status > 0 && number < 0 ? 0 : _this.state.dict[_this.state.correctAnswer].status < 0 && number > 0 ? 1 : _this.state.dict[_this.state.correctAnswer].status + number
+      var correctAnswer = _this.state.dict[_this.state.correctAnswer];
+      _this.setState({
+        dict: Object.assign({}, _this.state.dict, _defineProperty({}, _this.state.correctAnswer, Object.assign({}, correctAnswer, {
+          status: correctAnswer.status > 0 && number < 0 ? 0 : correctAnswer.status < 0 && number > 0 ? 1 : correctAnswer.status + number
         })))
       });
     }, _temp), _possibleConstructorReturn(_this, _ret);
