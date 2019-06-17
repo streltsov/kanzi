@@ -46,11 +46,36 @@ var App = function (_React$Component) {
   _createClass(App, [{
     key: 'render',
     value: function render() {
-      return this.state.dict ? React.createElement(Field, {
-        onClick: this.onClick,
-        question: this.state.question,
-        answers: [this.state.correctAnswer, 1, 2, 3]
-      }) : React.createElement(
+      var _this2 = this;
+
+      return this.state.dict ? React.createElement(
+        'div',
+        null,
+        React.createElement(Field, {
+          onClick: this.onClick,
+          question: this.state.question,
+          answers: [this.state.correctAnswer, 1, 2, 3]
+        }),
+        React.createElement(
+          'ol',
+          null,
+          ' ',
+          this.sort(this.state.dict).map(function (el) {
+            return React.createElement(
+              'li',
+              null,
+              ' ',
+              el,
+              ' [ ',
+              _this2.state.dict[el].status,
+              ' ]',
+              ' '
+            );
+          }),
+          ' '
+        ),
+        ' '
+      ) : React.createElement(
         'div',
         null,
         'Loading...'

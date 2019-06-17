@@ -33,11 +33,22 @@ class App extends React.Component {
 
   render() {
     return this.state.dict ? (
-      <Field
-        onClick={this.onClick}
-        question={this.state.question}
-        answers={[this.state.correctAnswer, 1, 2, 3]}
-      />
+      <div>
+        <Field
+          onClick={this.onClick}
+          question={this.state.question}
+          answers={[this.state.correctAnswer, 1, 2, 3]}
+        />
+        <ol>
+          {' '}
+          {this.sort(this.state.dict).map(el => (
+            <li>
+              {' '}
+              {el} [ {this.state.dict[el].status} ]{' '}
+            </li>
+          ))}{' '}
+        </ol>{' '}
+      </div>
     ) : (
       <div>Loading...</div>
     );
