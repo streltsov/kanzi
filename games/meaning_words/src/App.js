@@ -1,5 +1,5 @@
 class App extends React.Component {
-  state = {question: null, correctAnswer: null};
+  state = {question: null, correctAnswer: null, dict: null};
 
   sort = obj =>
     Object.keys(obj)
@@ -17,18 +17,26 @@ class App extends React.Component {
   componentDidMount = () => {
     browser.storage.local
       .get()
+
       .then(storage => storage.dictionary)
       .then(dictionary => {
         this.setState({correctAnswer: this.sort(dictionary)[0]});
         this.setState({question: dictionary[this.state.correctAnswer].meaning});
+        this.setState({dict: dictionary});
       });
   };
 
+  onClick = event =>
+    event.target.textContent === this.state.correctAnswer
+      ? console.log('Right')
+      : console.log('Wrong');
+
   render() {
-    return this.state.correctAnswer ? (
+    return this.state.dict ? (
       <Field
+        onClick={this.onClick}
         question={this.state.question}
-        answers={[this.state.correctAnswer]}
+        answers={[this.state.correctAnswer, 1, 2, 3]}
       />
     ) : (
       <div>Loading...</div>

@@ -22,7 +22,7 @@ var App = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.state = { question: null, correctAnswer: null }, _this.sort = function (obj) {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.state = { question: null, correctAnswer: null, dict: null }, _this.sort = function (obj) {
       return Object.keys(obj).sort(function (a, b) {
         return obj[a].status - obj[b].status;
       }).reverse();
@@ -36,16 +36,20 @@ var App = function (_React$Component) {
       }).then(function (dictionary) {
         _this.setState({ correctAnswer: _this.sort(dictionary)[0] });
         _this.setState({ question: dictionary[_this.state.correctAnswer].meaning });
+        _this.setState({ dict: dictionary });
       });
+    }, _this.onClick = function (event) {
+      return event.target.textContent === _this.state.correctAnswer ? console.log('Right') : console.log('Wrong');
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(App, [{
     key: 'render',
     value: function render() {
-      return this.state.correctAnswer ? React.createElement(Field, {
+      return this.state.dict ? React.createElement(Field, {
+        onClick: this.onClick,
         question: this.state.question,
-        answers: [this.state.correctAnswer]
+        answers: [this.state.correctAnswer, 1, 2, 3]
       }) : React.createElement(
         'div',
         null,
