@@ -27,9 +27,26 @@ class App extends React.Component {
   };
 
   onClick = event =>
-    event.target.textContent === this.state.correctAnswer
-      ? console.log('Right')
-      : console.log('Wrong');
+    this.changeWordStatus(
+      event.target.textContent === this.state.correctAnswer ? 1 : -1,
+    );
+
+  changeWordStatus = number =>
+    this.setState({
+      dict: {
+        ...this.state.dict,
+        [this.state.correctAnswer]: {
+          ...this.state.dict[this.state.correctAnswer],
+          status:
+            this.state.dict[this.state.correctAnswer].status > 0 && number < 0
+              ? 0
+              : this.state.dict[this.state.correctAnswer].status < 0 &&
+                number > 0
+              ? 1
+              : this.state.dict[this.state.correctAnswer].status + number,
+        },
+      },
+    });
 
   render() {
     return this.state.dict ? (
