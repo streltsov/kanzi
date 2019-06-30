@@ -1,98 +1,72 @@
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var App = function App() {
+  var _React$useState = React.useState([]),
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      dict = _React$useState2[0],
+      setDict = _React$useState2[1];
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+  React.useEffect(function () {
+    browser.storage.local.get().then(function (storage) {
+      return storage.dictionary;
+    }).then(function (dictionary) {
+      for (var key in dictionary) {
+        if (!dictionary[key].status) {
+          dictionary[key].status = 0;
+        }
+      }
+      setDict(sortByStatus(Object.entries(dictionary)));
+    });
+  }, []);
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var App = function (_React$Component) {
-  _inherits(App, _React$Component);
-
-  function App() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
-    _classCallCheck(this, App);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
+  var sortByStatus = function sortByStatus(array) {
+    var arr = [].concat(_toConsumableArray(array));
+    for (i = 1; i < arr.length; i++) {
+      for (j = 0; j < i; j++) {
+        if (arr[i][1].status - 1 < arr[j][1].status) {
+          var el = arr.splice(i, 1);
+          arr.splice(j, 0, el[0]);
+        }
+      }
     }
+    return arr;
+  };
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.state = { question: null, correctAnswer: null, dict: null }, _this.sort = function (obj) {
-      return Object.keys(obj).sort(function (a, b) {
-        return obj[a].status - obj[b].status;
-      }).reverse();
-    }, _this.getAnswers = function (array) {
-      return [array[0]].concat(_toConsumableArray(Array.from({ length: 3 }, function () {
-        return array[Math.floor(Math.random() * array.length)];
-      })));
-    }, _this.componentDidMount = function () {
-      browser.storage.local.get().then(function (storage) {
-        return storage.dictionary;
-      }).then(function (dictionary) {
-        _this.setState({ correctAnswer: _this.sort(dictionary)[0] });
-        _this.setState({ question: dictionary[_this.state.correctAnswer].meaning });
-        _this.setState({ dict: dictionary });
-      });
-    }, _this.onClick = function (event) {
-      _this.changeWordStatus(event.target.textContent === _this.state.correctAnswer ? 1 : -1);
-    }, _this.changeWordStatus = function (number) {
-      var correctAnswer = _this.state.dict[_this.state.correctAnswer];
-      _this.setState({
-        dict: Object.assign({}, _this.state.dict, _defineProperty({}, _this.state.correctAnswer, Object.assign({}, correctAnswer, {
-          status: correctAnswer.status > 0 && number < 0 ? 0 : correctAnswer.status < 0 && number > 0 ? 1 : correctAnswer.status + number
-        })))
-      });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
+  var changeWordStatusInStorage = function changeWordStatusInStorage(word, status) {
+    return browser.storage.local.get('dictionary').then(function (storage) {
+      storage.dictionary[word].status = status;
+      browser.storage.local.set({ dictionary: Object.assign({}, storage.dictionary) });
+    });
+  };
 
-  _createClass(App, [{
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
+  var changeWordStatus = function changeWordStatus(boolean) {
+    var newDict = [].concat(_toConsumableArray(dict));
+    boolean ? newDict[0][1].status++ : newDict[0][1].status = 0;
+    setDict(newDict);
+  };
 
-      return this.state.dict ? React.createElement(
-        'div',
-        null,
-        React.createElement(Field, {
-          onClick: this.onClick,
-          question: this.state.question,
-          answers: [this.state.correctAnswer, 1, 2, 3]
-        }),
-        React.createElement(
-          'ol',
-          null,
-          ' ',
-          this.sort(this.state.dict).map(function (el) {
-            return React.createElement(
-              'li',
-              null,
-              ' ',
-              el,
-              ' [ ',
-              _this2.state.dict[el].status,
-              ' ]',
-              ' '
-            );
-          }),
-          ' '
-        ),
-        ' '
-      ) : React.createElement(
-        'div',
-        null,
-        'Loading...'
-      );
-    }
-  }]);
+  var handleClick = function handleClick(event) {
+    return event.target.textContent === dict[0][0] ? onRightAnswer() : onWrongAnswer();
+  };
+  var onRightAnswer = function onRightAnswer() {
+    changeWordStatus(1);
+    changeWordStatusInStorage(dict[0][0], dict[0][1].status);
+    setDict(sortByStatus(dict));
+  };
+  var onWrongAnswer = function onWrongAnswer() {
+    alert('Wrong!');
+    changeWordStatus(0);
+    changeWordStatusInStorage(dict[0][0], dict[0][1].status);
+    setDict(sortByStatus(dict));
+  };
 
-  return App;
-}(React.Component);
+  return dict.length ? React.createElement(Field, { onClick: handleClick, dictionary: dict }) : React.createElement(
+    'span',
+    null,
+    'Loading...'
+  );
+};
 
 ReactDOM.render(React.createElement(App), document.querySelector('#root'));
