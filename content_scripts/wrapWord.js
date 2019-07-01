@@ -28,5 +28,6 @@ const wrapWord = string => {
     span.style.borderBottom = '2px solid #45a1ff';
     span.style.display = 'inline';
     nodes.currentNode.parentElement.insertBefore(span, splitNode);
+    nodes.nextNode();
   }
 };
