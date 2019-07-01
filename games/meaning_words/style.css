@@ -1,4 +1,56 @@
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Fira Sans', sans-serif;
   color: #ededf0;
   background: #2a2a2e;
+
+  min-height: 100vh;
+  margin: 0;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40vh;
+}
+
+.Field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.question {
+  max-width: 40ch;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.Answers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px;
+}
+
+.Answer {
+  transition: background-color 0.2s ease;
+  background-color: #38383d;
+  color: #ededf0;
+  font-weight: bold;
+  font-size: 18px;
+  border: none;
+  padding: 8px;
+  border-radius: 2px;
+  min-width: 280px;
+}
+.Answer:hover {
+  background-color: #4a4a4f;
+  cursor: pointer;
+  color: #d7d7db;
 }
