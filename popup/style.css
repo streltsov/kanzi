@@ -6,6 +6,7 @@ hr {
 }
 
 .popup-list {
+  background-color: #ffffff;
   color: #0c0c0d;
   list-style-type: none;
   margin: 0;
@@ -14,15 +15,56 @@ hr {
 }
 
 .popup-list li {
-  height: 24px;
   display: flex;
-  align-items: center
+  align-items: center;
+  height: 24px;
+  padding: 0 4px;
 }
 
 .popup-list li:hover {
-  background-color: #ECECEC;
+  background-color: #ececec;
 }
 
-svg {
+.popup-list svg {
   margin: 0 8px;
+}
+
+.popup-list span {
+  flex-grow: 1;
+}
+
+.hide {
+  display: none;
+}
+
+.title-list li {
+  display: flex;
+  height: 32px
+}
+
+.title-list li:hover {
+  background-color: #ffffff;
+}
+
+.title-list .back-icon {
+  height: 32px;
+  width: 32px;
+  padding: 8px;
+  margin: 0;
+}
+
+.title-list .back-icon:hover {
+  background-color: #ececec;
+}
+
+.title-list strong {
+  flex-grow: 1;
+  text-align: center;
+  padding-right: 32px;
+}
+
+.games-list-div {
+  position: absolute;
+  height: 100%;
+  background-color: #ffffff;
 }

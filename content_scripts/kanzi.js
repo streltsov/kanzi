@@ -12,6 +12,7 @@ browser.storage.local.get().then(storage => {
       storage.dictionary[word].example,
     );
   });
+  getStatistics(storage.dictionary);
 });
 
 browser.runtime.onMessage.addListener(request =>

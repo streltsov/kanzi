@@ -34,6 +34,14 @@
   "popupDictionary": {
     "message": "Dictionary"
   },
+  
+  "popupGames": {
+    "message": "Games"
+  },
+
+  "gamesMeaningWords": {
+    "message": "Meaning words"
+  },
 
   "popupPreferences": {
     "message": "Preferences"
@@ -97,5 +105,4 @@
 
   "dictionaryDeleteButton": {
     "message": "Delete"
-  }
-}
+  }}
