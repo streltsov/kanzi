@@ -59,7 +59,15 @@ const App = () => {
       <Field onClick={handleClick} dictionary={dict} />
     </div>
   ) : (
-    <span>Loading...</span>
+    <div className="loading-screen">
+      <span className="loading-screen__title">Meaning Words</span>
+      <div class="lds-ellipsis">
+        <div />
+        <div />
+        <div />
+        <div />
+      </div>
+    </div>
   );
 };
 

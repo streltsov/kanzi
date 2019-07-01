@@ -67,9 +67,21 @@ var App = function App() {
     { className: 'App' },
     React.createElement(Field, { onClick: handleClick, dictionary: dict })
   ) : React.createElement(
-    'span',
-    null,
-    'Loading...'
+    'div',
+    { className: 'loading-screen' },
+    React.createElement(
+      'span',
+      { className: 'loading-screen__title' },
+      'Meaning Words'
+    ),
+    React.createElement(
+      'div',
+      { 'class': 'lds-ellipsis' },
+      React.createElement('div', null),
+      React.createElement('div', null),
+      React.createElement('div', null),
+      React.createElement('div', null)
+    )
   );
 };
 
