@@ -55,7 +55,9 @@ const App = () => {
   };
 
   return dict.length ? (
-    <Field onClick={handleClick} dictionary={dict} />
+    <div className="App">
+      <Field onClick={handleClick} dictionary={dict} />
+    </div>
   ) : (
     <span>Loading...</span>
   );

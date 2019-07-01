@@ -5,18 +5,25 @@ const Field = ({dictionary, onClick}) => {
   const variants = shuffle([rightAnswer, ...wrongAnswers]);
 
   return (
-    <div>
-      <h3>{dictionary[0][1].meaning}</h3>
+    <div className="Field">
+      <h3 className="question">{dictionary[0][1].meaning}</h3>
       <Answers onClick={onClick} answers={variants} />
     </div>
   );
 };
 
-const Answers = ({answers, onClick}) =>
-  answers.map(answer => <Answer onClick={onClick} answer={answer} />);
+const Answers = ({answers, onClick}) => (
+  <div className="Answers">
+    {answers.map(answer => (
+      <Answer onClick={onClick} answer={answer} />
+    ))}
+  </div>
+);
 
 const Answer = ({answer, onClick}) => (
-  <button onClick={onClick}>{answer}</button>
+  <button className="Answer" onClick={onClick}>
+    {answer}
+  </button>
 );
 
 const shuffle = array => {

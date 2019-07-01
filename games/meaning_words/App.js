@@ -62,7 +62,11 @@ var App = function App() {
     setDict(sortByStatus(dict));
   };
 
-  return dict.length ? React.createElement(Field, { onClick: handleClick, dictionary: dict }) : React.createElement(
+  return dict.length ? React.createElement(
+    'div',
+    { className: 'App' },
+    React.createElement(Field, { onClick: handleClick, dictionary: dict })
+  ) : React.createElement(
     'span',
     null,
     'Loading...'

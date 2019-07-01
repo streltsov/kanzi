@@ -13,10 +13,10 @@ var Field = function Field(_ref) {
 
   return React.createElement(
     "div",
-    null,
+    { className: "Field" },
     React.createElement(
       "h3",
-      null,
+      { className: "question" },
       dictionary[0][1].meaning
     ),
     React.createElement(Answers, { onClick: onClick, answers: variants })
@@ -26,9 +26,13 @@ var Field = function Field(_ref) {
 var Answers = function Answers(_ref2) {
   var answers = _ref2.answers,
       onClick = _ref2.onClick;
-  return answers.map(function (answer) {
-    return React.createElement(Answer, { onClick: onClick, answer: answer });
-  });
+  return React.createElement(
+    "div",
+    { className: "Answers" },
+    answers.map(function (answer) {
+      return React.createElement(Answer, { onClick: onClick, answer: answer });
+    })
+  );
 };
 
 var Answer = function Answer(_ref3) {
@@ -36,7 +40,7 @@ var Answer = function Answer(_ref3) {
       onClick = _ref3.onClick;
   return React.createElement(
     "button",
-    { onClick: onClick },
+    { className: "Answer", onClick: onClick },
     answer
   );
 };
