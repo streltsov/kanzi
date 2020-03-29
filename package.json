@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/streltsov/kanzi/issues"
   },
-  "homepage": "https://github.com/streltsov/kanzi#readme"
+  "homepage": "https://github.com/streltsov/kanzi#readme",
+  "devDependencies": {
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
 }
