@@ -1,0 +1,19 @@
+{
+  "name": "kanzi",
+  "version": "1.4.0",
+  "description": "Firefox extension that helps building vocabulary while surfing the internet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/streltsov/kanzi.git"
+  },
+  "author": "Herman Streltsov <mail@streltsov.org> (https://streltsov.org)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/streltsov/kanzi/issues"
+  },
+  "homepage": "https://github.com/streltsov/kanzi#readme"
+}
